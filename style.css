@@ -1,3 +1,4 @@
+/* Navbar links, logo hover, and search input/button interactions */
 .nav-hover {
     position: relative;
     transition: color 0.3s ease;
@@ -36,6 +37,7 @@
   }
 
 
+/* Sidebar/offcanvas menu styling and interactions */
 .sidebar-links .nav-link {
     font-size: 0.95rem;
     padding: 10px 12px;
@@ -68,29 +70,17 @@
     overflow-y: auto;
   }
 
+/* Product card typography, spacing, and image sizing */
 .txt-card{
     font-family: Khmer OS Battambang;
     color: blue;
 }
-.price{
-  color: red;
-}
-/* @media (min-width: 992px) {
-    .col-lg-3 {
-        flex: 0 0 auto;
-        width: 20%;
-    }
-}  */
 .card-body{
     padding: 5px 0px 0px 0px;
 }
 .card-title{
     font-size: 18px;
 }
-img{
-    width: auto;
-    height: 75%;
-} 
 
 .items{
    font-family: Khmer OS Battambang;
@@ -111,12 +101,27 @@ img {
   height: auto;
   display: block;
 }
+
+#topBanner img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  #topBanner img {
+    height: 96px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 .numbering{
     font-size: 1.1rem;
     color: rgb(30, 0, 255);
     font-family: battambang !important;
 }
 
+/* Mobile layout reset for Bootstrap containers/rows */
 @media (max-width: 768px) {
   .container,
   .container-fluid,
@@ -127,15 +132,12 @@ img {
     margin-right: 0 !important;
   }
 }
-/* @media (min-width: 992px) {
-  .product-table-section {
-    padding: 0 !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-  }
-} */
 
-/* Desktop only (navbar-expand-lg) */
+/* Keep first content (banner) below fixed navbar on all breakpoints */
+body {
+  padding-top: 76px; /* mobile/tablet navbar height */
+}
+
 @media (min-width: 992px) {
   body {
     padding-top: 70px; /* real desktop navbar height */
@@ -143,6 +145,7 @@ img {
 }
 
 
+/* Category button hover/active state */
 #categoryButtons button:hover,
 #categoryButtons button.active {
   background-color: #0d6efd;
@@ -151,6 +154,7 @@ img {
 }
 
 /* categories slide */
+/* Hide scrollbar and style category horizontal scroll controls */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -173,6 +177,7 @@ img {
 }
 
 /* Sticky Category Bar (Glass Effect, Responsive) */
+/* Sticky category bar appearance under the fixed navbar */
 .category-bar {
   position: sticky;
   top: 85px; /* matches Bootstrap navbar height on desktop */
@@ -209,6 +214,7 @@ img {
 }
 
 /* Mobile adjustments */
+/* Sticky category bar top offset/height on mobile */
 @media (max-width: 768px) {
   .category-bar {
     top: 56px; /* matches Bootstrap mobile navbar */
@@ -217,12 +223,14 @@ img {
 }
 
 /* Optional: remove extra space if container-fluid adds padding */
+/* Remove inner container vertical padding inside category bar */
 .category-bar .container,
 .category-bar .container-fluid {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
+/* Active category pill style */
 .category-filter.active {
   background-color: #0d6efd; /* Bootstrap primary color */
   color: white !important;
@@ -230,15 +238,7 @@ img {
   box-shadow: 0 0 8px rgba(13, 110, 253, 0.4);
 }
 
-
-
-
-
-
-
-
-
-
+/* Horizontal card scroller layout (desktop/tablet/mobile breakpoints) */
 .scroll-wrapper {
     overflow: hidden;
     width: 100%;
@@ -262,12 +262,11 @@ img {
 
 /* Mobile */
 @media (max-width: 576px) {
-    .scroll-card {
-        flex: 0 0 100%;
-    }
+    .scroll-card { flex: 0 0 50%; }
 }
 
 
+/* Horizontal card scroller behavior (touch scroll + hidden scrollbar) */
 .scroll-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -275,22 +274,80 @@ img {
 }
 .scroll-wrapper::-webkit-scrollbar { display: none; }
 
-.scroll-row {
-    display: flex;
-    scroll-behavior: smooth;
-}
-
 .scroll-card {
-    flex: 0 0 calc(100% / 3);
     padding: .5rem;
 }
 
-/* Mobile = 2 cards */
+/* Remove underline on the 30 home category cards */
+.scroll-row .scroll-card > a.category-filter,
+.scroll-row .scroll-card > a.category-filter:hover,
+.scroll-row .scroll-card > a.category-filter:focus {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Add extra spacing around home card text box */
+.scroll-row .scroll-card .card-body {
+    padding-top: 0.85rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.scroll-row .scroll-card .card-body h6 {
+    margin-top: 0.25rem;
+}
+
+/* Tighten category label spacing on phones */
 @media (max-width: 576px) {
-    .scroll-card { flex: 0 0 50%; }
+    .scroll-row .scroll-card .card-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.2rem;
+        padding-top: 0.2rem !important;
+        padding-bottom: 0.2rem !important;
+    }
+
+    .scroll-row .scroll-card .card-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1.2;
+        transform: translateY(1px);
+    }
+}
+
+/* 3D look for 30 category cards on home.html */
+#categoryScroll .scroll-card .card {
+    border: 1px solid #85bae6;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow:
+        0 -8px 18px rgba(15, 35, 75, 0.12),
+        0 24px 50px rgba(15, 35, 75, 0.26),
+        0 10px 22px rgba(15, 35, 75, 0.18);
+    transform: none;
+    transition: none;
+    overflow: hidden;
+}
+
+#categoryScroll .scroll-card .card:hover {
+    transform: none;
+    box-shadow:
+        0 -8px 18px rgba(15, 35, 75, 0.12),
+        0 24px 50px rgba(15, 35, 75, 0.26),
+        0 10px 22px rgba(15, 35, 75, 0.18);
+}
+
+#categoryScroll .scroll-card .card .ratio {
+    border-bottom: 1px solid #e7edf6;
+    background: #ffffff;
+}
+
+#categoryScroll .scroll-card .card .card-body {
+    background: #ffffff;
 }
 
 /* Buttons */
+/* Left/right controls for horizontal card scroller */
 .scroll-btn {
     position: absolute;
     top: 50%;
@@ -305,6 +362,3 @@ img {
 
 .scroll-btn.left { left: 10px; }
 .scroll-btn.right { right: 10px; }
-
-
-
