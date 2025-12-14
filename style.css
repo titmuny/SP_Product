@@ -506,7 +506,7 @@ img {
 
 /* Keep first content (banner) below fixed navbar on all breakpoints */
 body {
-  padding-top: 76px; /* mobile/tablet navbar height */
+  padding-top: 56px; /* mobile/tablet navbar height */
 }
 
 @media (min-width: 992px) {
@@ -768,6 +768,7 @@ body {
 .s90-page-footer { background: linear-gradient(135deg, #0f172a, #1e293b); font-family: 'Inter', sans-serif; }
 .s90-product-image { border-radius: 0; max-height: fit-content; margin: 0 auto; }
 .home-category-banner { width: min(100%, 864px); height: auto; object-fit: contain; }
+.hero-banner-card > .card-img-top { width: min(100%, 864px); height: auto; object-fit: contain; }
 .s90-product-price { font-size: 1.3rem; font-family: inter; color: red; }
 .s90-sidebar-links { font-family: poppins, Khmer OS Battambang; }
 .s90-sidebar-panel .s90-sidebar-links { width: 100%; margin: 0; padding: 0; }
@@ -791,8 +792,8 @@ body {
   .s90-facebook-floating-button { bottom: 124px; }
   .s90-telegram-floating-button { bottom: 72px; }
   .s90-floating-scroll-top, .s90-floating-scroll-bottom { bottom: 16px; }
-  .s90-cart-fab { right: max(12px, env(safe-area-inset-right)); bottom: 176px; width: 40px; height: 40px; font-size: 20px; }
-  body:has(#homeBtn) .s90-cart-fab { bottom: 228px; }
+  .s90-cart-fab { right: max(12px, env(safe-area-inset-right)); bottom: 184px; width: 40px; height: 40px; font-size: 20px; }
+  body:has(#homeBtn) .s90-cart-fab { bottom: 236px; }
 }
 
 @media (max-width: 767.98px) {
@@ -804,9 +805,9 @@ body {
 /* Desktop floating controls aligned to the reference stack. */
 @media (min-width: 992px) {
   .s90-floating-control, .s90-floating-scroll, .s90-cart-fab { right: 20px; width: 50px; height: 50px; }
-  .s90-cart-fab { bottom: 230px; }
-  .s90-facebook-floating-button { bottom: 160px; }
-  .s90-telegram-floating-button { bottom: 90px; }
+  .s90-cart-fab { bottom: 232px; }
+  .s90-facebook-floating-button { bottom: 162px; }
+  .s90-telegram-floating-button { bottom: 92px; }
   .s90-floating-scroll-top, .s90-floating-scroll-bottom { bottom: 20px; }
 }
 

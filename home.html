@@ -47,7 +47,7 @@
     <!-- Begins 11/05/2025 -->
 
     <div id="topBanner">
-        <img src="Banner.jpg" loading="eager" fetchpriority="high" decoding="async">
+        <img src="Banner.jpg" style="width: 100%; height: auto;" loading="eager" fetchpriority="high" decoding="async">
     </div>
 
     <!-- Compact S90-style responsive navbar -->
@@ -117,8 +117,8 @@
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0 active" data-category="All">All</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="New Arrivals">ទំនិញទើបមកដល់ថ្មី-New Arrivals</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Best Sellers">ទំនិញលក់ដាច់បំផុត-Best Sellers</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ផ្លែតំណ-ADA">ផ្លែតំណ-Connector</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="KEY-KEY">សោរ-Key</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ADA">ផ្លែតំណ-Connector</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="KEY">សោរ-Key</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Laser Distance Meter-LSDT">ឡាស៊ែរ-Laser</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Motor-DLMT">ម៉ូទ័រ-Motor</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Solar-Solar">សូឡា-Solar</button>
@@ -33397,90 +33397,48 @@
             scrollContainer.scrollLeft = scrollLeft - walk;
         });
     </script>
-    
-    <!-- Category filter script -->
+
+    <!-- Category filtering -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const buttons = document.querySelectorAll('.category-filter');
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = Array.from(document.querySelectorAll('.category-filter[data-category]'));
+            const cards = Array.from(document.querySelectorAll('.card')).filter(card => !card.closest('.no-filter'));
+            if (!buttons.length || !cards.length) return;
 
-        // ❗ Only cards NOT inside .no-filter
-        const cardElements = Array.from(
-            document.querySelectorAll('.card')
-        ).filter(card => !card.closest('.no-filter'));
+            const normalize = value => (value || '').toString().normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+            const categoryMatches = (a, b) => {
+                a = normalize(a);
+                b = normalize(b);
+                if (!a || !b) return false;
+                if (a === b || a.endsWith('-' + b) || b.endsWith('-' + a)) return true;
+                return a.split('-').pop() === b.split('-').pop();
+            };
+            const wrapperOf = card => card.closest('[class*="col-"]') || card.parentElement || card;
 
-        if (!buttons.length) {
-            console.warn('No .category-filter buttons found.');
-            return;
-        }
+            buttons.forEach(button => button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const selected = button.dataset.category || '';
+                cards.forEach(card => {
+                    const image = card.querySelector('img');
+                    const imagePath = image ? image.getAttribute('src') || '' : '';
+                    const folder = imagePath.split('/')[0];
+                    const cardCategory = card.dataset.category || folder;
+                    const specialMatch = (normalize(selected) === 'new arrivals' && normalize(imagePath).startsWith('new arrivals/')) ||
+                        (normalize(selected) === 'best sellers' && normalize(imagePath).startsWith('best sellers/'));
+                    const visible = !selected || normalize(selected) === 'all' || specialMatch || categoryMatches(selected, cardCategory);
+                    const wrapper = wrapperOf(card);
+                    if (wrapper) wrapper.style.display = visible ? '' : 'none';
+                });
 
-        function findWrapper(card) {
-            return card.closest('[class*="col-"]') || card.parentElement || card;
-        }
-
-        function normalize(str) {
-            return (str || '')
-                .toString()
-                .normalize('NFKC')
-                .replace(/\s+/g, ' ')
-                .trim()
-                .toLowerCase();
-        }
-
-        function getCategoryFromCard(card) {
-            if (card.dataset && card.dataset.category) return card.dataset.category.trim();
-            if (card.dataset.category) return card.dataset.category.trim();
-            const img = card.querySelector('img');
-            const folder = img ? (img.getAttribute('src') || '').split('/')[0].trim() : '';
-            const folderCode = folder.split('-').pop();
-            const matchingButton = Array.from(buttons).find(btn => {
-                const value = (btn.dataset.category || '').trim();
-                return value === folder || value === folderCode || value.endsWith('-' + folderCode);
-            });
-            return matchingButton ? matchingButton.dataset.category : folder;
-        }
-
-        function onClickHandler(e) {
-            e.preventDefault();
-            const btn = e.currentTarget;
-            const category = (btn.dataset.category || '').trim();
-
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const nCat = normalize(category);
-
-            cardElements.forEach(card => {
-                const wrapper = findWrapper(card);
-                if (!wrapper) return;
-
-                const cardCategory = card.dataset.category || '';
-                let matched = false;
-
-                if (category === 'All' || category === '') {
-                    matched = true;
-                } else if (cardCategory) {
-                    const normalizedCardCategory = normalize(cardCategory);
-                    matched = normalizedCardCategory === nCat || normalizedCardCategory.endsWith('-' + nCat) || nCat.endsWith('-' + normalizedCardCategory);
-                } else {
-                    matched = normalize(getCategoryFromCard(card)) === nCat;
-                }
-
-                wrapper.style.display = matched ? '' : 'none';
-            });
-
-            // Close offcanvas (mobile)
-            try {
-                const off = document.getElementById('sidebarMenu');
-                if (off && window.bootstrap?.Offcanvas) {
-                    bootstrap.Offcanvas.getInstance(off)?.hide();
-                }
-            } catch {}
-        }
-
-        buttons.forEach(btn => btn.addEventListener('click', onClickHandler));
+                buttons.forEach(item => item.classList.toggle('active', categoryMatches(item.dataset.category, selected)));
+                try {
+                    const menu = document.getElementById('sidebarMenu');
+                    if (menu && window.bootstrap) bootstrap.Offcanvas.getInstance(menu)?.hide();
+                } catch (_) {}
+            }));
         });
     </script>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const searchToggle = document.querySelector('[data-s90-search-toggle]');

@@ -16,7 +16,7 @@ main{max-width:1150px;margin:0 auto;padding:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
 .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:7px;cursor:pointer}
 .btn:hover{background:#f0f2f6}.btn.pri{background:var(--pri);border-color:var(--pri);color:#fff}.btn.pri:hover{background:var(--pri-d)}
-.btn.dan{color:var(--dan);border-color:#e7b5b5}.btn.sm{padding:4px 9px;font-size:13px}
+.btn.dan{background:var(--dan);color:#fff;border-color:var(--dan)}.btn.dan:hover{background:#b42323}.btn.sm{padding:4px 9px;font-size:13px}
 .btn:disabled{opacity:.55;cursor:wait}
 header .btn{background:transparent;color:#fff;border-color:#ffffff55}header .btn.pri{background:#2f80ff;border-color:#2f80ff}
 input[type=text],input[type=password],input[type=number],select{width:100%;padding:8px 10px;border:1px solid #cfd4dc;border-radius:7px;background:#fff}
@@ -71,6 +71,7 @@ small{color:var(--mut)}
     </div>
 
     <section id="tab-managed">
+      <div class="card"><label style="display:flex;align-items:center;gap:10px;margin:0"><input id="showPrices" type="checkbox" style="width:auto"> Show product prices on the website</label><small>Applies to single prices and prices shown for product options.</small></div>
       <div class="card">
         <div class="row"><strong class="grow" id="managedCount"></strong><button id="addBtn" class="btn pri">+ Add product</button></div>
         <div style="overflow:auto"><table><thead><tr><th></th><th>SKU</th><th>Name</th><th>Category</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody id="managedRows"></tbody></table></div>
@@ -131,6 +132,7 @@ function boot(){
   }).catch(function(e){if(e.status===401)showLogin();else toast('err',e.message)});
 }
 function render(){
+  $('showPrices').checked=!(state.catalog.settings&&state.catalog.settings.showPrices===false);
   var g=state.git||{};
   $('gitInfo').textContent=g.ok?('Git: '+g.branch):'Git not ready';
   $('gitInfo').className='tag '+(g.ok?'ok':'dan');$('gitInfo').title=g.ok?g.remote:(g.problem||'');
@@ -139,6 +141,10 @@ function render(){
   sel.value=cur;
   renderManaged();renderStatic();
 }
+$('showPrices').onchange=function(){
+  var input=$('showPrices');input.disabled=true;
+  api('POST','/api/settings',{showPrices:input.checked}).then(function(){return boot()}).catch(function(e){input.checked=!input.checked;toast('err',e.message)}).then(function(){input.disabled=false});
+};
 function renderManaged(){
   var ps=state.catalog.products||[];
   $('managedCount').textContent=ps.length+' product'+(ps.length===1?'':'s')+' created in the dashboard';
@@ -163,10 +169,11 @@ function renderStatic(){
   $('staticRows').innerHTML=shown.map(function(p){
     var o=ov[p.sku],tags='';
     if(o&&o.hidden)tags+='<span class="tag warn">Hidden</span> ';
-    if(o&&(o.name||o.price||o.image||o.category||o.items))tags+='<span class="tag">Edited</span>';
+    if(o&&(o.name||o.price||o.image||o.category||o.items||typeof o.showPrice==='boolean'))tags+='<span class="tag">Edited</span>';
     if(!tags)tags='<span class="tag ok">Original</span>';
+    var rowShowsPrice=typeof (o&&o.showPrice)==='boolean'?o.showPrice:!(state.catalog.settings&&state.catalog.settings.showPrices===false);
     return '<tr><td><img src="'+esc(imgUrl((o&&o.image)||p.image))+'" alt="" loading="lazy"></td><td><code>'+esc(p.sku)+'</code></td><td>'+esc((o&&o.name)||p.name)+'</td><td>'+esc(((o&&o.items)||p.items||[]).length?((o&&o.items)||p.items).length+' sub-items':(o&&o.price?money(o.price):p.price))+'</td><td>'+tags+'</td>'
-    +'<td style="white-space:nowrap"><button class="btn sm" data-a="oedit" data-s="'+esc(p.sku)+'">Edit</button> <button class="btn sm" data-a="ohide" data-s="'+esc(p.sku)+'">'+(o&&o.hidden?'Show':'Hide')+'</button>'+(o?' <button class="btn sm" data-a="oreset" data-s="'+esc(p.sku)+'">Reset</button>':'')+'</td></tr>';
+    +'<td style="white-space:nowrap"><button class="btn sm" data-a="oedit" data-s="'+esc(p.sku)+'">Edit</button> <button class="btn sm '+(rowShowsPrice?'dan':'pri')+'" data-a="oprice" data-s="'+esc(p.sku)+'">'+(rowShowsPrice?'Hide price':'Show price')+'</button> <button class="btn sm" data-a="ohide" data-s="'+esc(p.sku)+'">'+(o&&o.hidden?'Show':'Hide')+'</button>'+(o?' <button class="btn sm" data-a="oreset" data-s="'+esc(p.sku)+'">Reset</button>':'')+'</td></tr>';
   }).join('');
 }
 $('staticQ').oninput=function(){staticLimit=100;renderStatic()};
@@ -276,6 +283,11 @@ $('managedRows').onclick=function(e){
 $('staticRows').onclick=function(e){
   var b=e.target.closest('button');if(!b)return;var sku=b.dataset.s,o=(state.catalog.overrides||{})[sku]||{};
   if(b.dataset.a==='oedit')openOverrideForm(sku);
+  else if(b.dataset.a==='oprice'){
+    var currentlyShown=typeof o.showPrice==='boolean'?o.showPrice:!(state.catalog.settings&&state.catalog.settings.showPrices===false);
+    b.disabled=true;
+    api('POST','/api/override',{sku:sku,showPrice:!currentlyShown}).then(function(){return boot()}).catch(function(err){toast('err',err.message)}).then(function(){b.disabled=false});
+  }
   else if(b.dataset.a==='ohide')act(api('POST','/api/override',{sku:sku,hidden:!o.hidden}));
   else if(b.dataset.a==='oreset'&&confirm('Remove all dashboard changes for '+sku+' and restore the original product?'))act(api('POST','/api/override',{sku:sku,clear:true}));
 };

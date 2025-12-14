@@ -20,6 +20,7 @@
   if (!catalog) return;
   var overrides = catalog.overrides || {};
   var products = Array.isArray(catalog.products) ? catalog.products : [];
+  var showPricesByDefault = !(catalog.settings && catalog.settings.showPrices === false);
 
   function money(v) {
     var n = Number(v);
@@ -46,6 +47,14 @@
       ul.appendChild(li);
     });
     return ul;
+  }
+  function setPriceVisibility(card, show) {
+    var prices = card.querySelectorAll('.multi-price, .s90-product-price');
+    for (var i = 0; i < prices.length; i++) prices[i].style.display = show ? '' : 'none';
+    var single = Array.prototype.filter.call(card.querySelectorAll('.card-text, .fw-bold'), function (node) {
+      return /^\s*price\s*:/i.test(node.textContent);
+    });
+    single.forEach(function (node) { node.style.display = show ? '' : 'none'; });
   }
   function wrapperOf(card) {
     return card.closest('[class*="col-"]') || card.parentElement || card;
@@ -96,6 +105,7 @@
       }
       if (o.image) { var im = card.querySelector('img'); if (im) { im.setAttribute('src', o.image); im.removeAttribute('srcset'); } }
       if (o.category) card.setAttribute('data-category', o.category);
+      setPriceVisibility(card, typeof o.showPrice === 'boolean' ? o.showPrice : showPricesByDefault);
     }
   }
 
@@ -133,6 +143,7 @@
     body.appendChild(top);
     if (Array.isArray(prod.items) && prod.items.length) top.appendChild(buildList(prod.items));
     else body.appendChild(el('p', 'card-text fw-bold', 'Price: ' + money(prod.price)));
+    setPriceVisibility(card, showPricesByDefault);
     card.appendChild(img);
     card.appendChild(body);
     col.appendChild(card);

@@ -1,23 +1,14 @@
 {
   "version": 1,
-  "products": [
-    {
-      "sku": "12345678910",
-      "name": "Test",
-      "category": "ADA",
-      "price": "0.00",
-      "items": [],
-      "image": "uploads/products/12345678910-mvncpk42.jpg",
-      "visible": true,
-      "createdAt": "2026-10-25T04:52:12.436Z",
-      "updatedAt": "2026-10-26T01:21:14.717Z"
-    }
-  ],
+  "products": [],
   "overrides": {
     "9999": {
       "hidden": true,
       "updatedAt": "2026-10-18T05:02:58.910Z"
     }
   },
-  "updatedAt": "2026-10-26T01:21:14.717Z"
+  "settings": {
+    "showPrices": true
+  },
+  "updatedAt": "2026-10-29T02:08:30.008Z"
 }

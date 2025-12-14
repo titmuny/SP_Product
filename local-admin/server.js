@@ -48,6 +48,8 @@ function loadCatalog() {
   const c = readJson(CATALOG_FILE, null) || {};
   if (!Array.isArray(c.products)) c.products = [];
   if (!c.overrides || typeof c.overrides !== 'object' || Array.isArray(c.overrides)) c.overrides = {};
+  if (!c.settings || typeof c.settings !== 'object' || Array.isArray(c.settings)) c.settings = {};
+  if (typeof c.settings.showPrices !== 'boolean') c.settings.showPrices = true;
   c.version = 1;
   return c;
 }
@@ -316,6 +318,13 @@ const api = {
     return { catalog, categories: site.categories, staticProducts: site.products, git: await gitStatus() };
   },
   async 'POST /api/refresh-site'() { getSite(true); return { ok: true }; },
+  async 'POST /api/settings'(b) {
+    const catalog = loadCatalog();
+    if (typeof b.showPrices !== 'boolean') throw new HttpError(400, 'Choose whether prices should be shown.');
+    catalog.settings.showPrices = b.showPrices;
+    saveCatalog(catalog);
+    return { ok: true, settings: catalog.settings };
+  },
   async 'POST /api/product'(b) {
     const catalog = loadCatalog();
     const sku = cleanText(b.sku, 40);
@@ -374,6 +383,7 @@ const api = {
     }
     const o = { ...prev };
     if ('hidden' in b) o.hidden = !!b.hidden;
+    if ('showPrice' in b) o.showPrice = !!b.showPrice;
     if ('name' in b) { const n = cleanText(b.name, 200); if (n) o.name = n; else delete o.name; }
     if ('price' in b) { if (String(b.price).trim() === '') delete o.price; else o.price = cleanPrice(b.price); }
     if ('category' in b) { if (!b.category) delete o.category; else o.category = validCategory(cleanText(b.category, 120)); }
