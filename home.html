@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14623,7 +14623,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងជ័រ-PLAS/1-7.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងជ័រ-PLAS/8.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -14653,7 +14653,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងជ័រ-PLAS/1-7.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងជ័រ-PLAS/8.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -33188,6 +33188,7 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
     <!-- category bar scroll buttons + desktop drag scroll -->
@@ -33234,13 +33235,12 @@
             scrollContainer.scrollLeft = scrollLeft - walk;
         });
     </script>
-    
     <!-- Category filter script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.category-filter');
 
-        // ❗ Only cards NOT inside .no-filter
+        // Only cards NOT inside .no-filter
         const cardElements = Array.from(
             document.querySelectorAll('.card')
         ).filter(card => !card.closest('.no-filter'));
@@ -33254,7 +33254,7 @@
             return card.closest('[class*="col-"]') || card.parentElement || card;
         }
 
-        // 🔒 Hide only filterable cards on load
+        // Hide only filterable cards on load
         cardElements.forEach(card => {
             const wrapper = findWrapper(card);
             if (wrapper) wrapper.style.display = 'none';
