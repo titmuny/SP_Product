@@ -6,90 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>SP</title>
-    <link rel="icon" href="SP_Stroke.png" type="image/png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0RPJXHL0D"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-M0RPJXHL0D');
+    </script>
+
+    <link rel="icon" href="Logo PNG.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
+
 <body>
 
-<!-- Begins 11/05/2025 -->
+    <!-- Begins 11/05/2025 -->
 
-<div id="topBanner" class="mt-3">
-    <img src="Banner.jpg" style="width: 100%; height: auto;">
-</div>
-
-<!-- Navbar --> 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm"
-    style="background-color: #00c3ff; transition: background-color 0.3s ease;">
-    <div class="container-fluid" style="font-family: Arial, 'Khmer OS Battambang'; font-size: 1.1rem;">    
-
-        <!-- Mobile: Toggler + Search -->
-        <div class="d-flex d-lg-none align-items-center w-100 gap-2 px-2">
-            <!-- Toggler -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <!-- Mobile Search -->
-            <form class="d-flex flex-grow-1 align-items-center" role="search" onsubmit="return handleSearch(event);">
-                <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search" placeholder="Search products"
-                    aria-label="Search" id="navbarSearchMobile">
-                <button class="btn btn-warning rounded-pill px-3 py-2 fw-semibold shadow-sm" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </form>
-        </div>
-
-        <!-- Logo (desktop only) -->
-        <a class="navbar-brand d-none d-lg-block" href="#">
-            <img src="Blue.png" alt="S90 Logo" style="height: 60px;">
-        </a>
-
-        <!-- Collapsible Navbar -->
-        <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-        
-            <!-- Left nav links -->
-            <ul class="navbar-nav align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link active text-black nav-hover" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black nav-hover" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black nav-hover" href="#" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
-                        aria-controls="sidebarMenu">Categories</a>
-                </li>
-            </ul>
-        
-            <!-- Desktop search -->
-            <form class="d-flex d-none d-lg-flex me-3 align-items-center" role="search" onsubmit="return handleSearch(event);">
-                <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search" placeholder="Search products"
-                    aria-label="Search" id="navbarSearchDesktop">
-                <button class="btn btn-primary rounded-pill px-4 fw-semibold shadow-sm search-hover" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </form>
-        
-        </div>
-
+    <div id="topBanner" class="mt-3">
+        <img src="Banner.jpg" style="width: 100%; height: auto;">
     </div>
-</nav>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm"
+        style="background-color: #00c3ff; transition: background-color 0.3s ease;">
+        <div class="container-fluid" style="font-family: Arial, 'Khmer OS Battambang'; font-size: 1.1rem;">
+
+            <!-- Mobile: Toggler + Search -->
+            <div class="d-flex d-lg-none align-items-center w-100 gap-2 px-2">
+                <!-- Toggler -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Mobile Search -->
+                <form class="d-flex flex-grow-1 align-items-center" role="search"
+                    onsubmit="return handleSearch(event);">
+                    <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search"
+                        placeholder="Search products" aria-label="Search" id="navbarSearchMobile">
+                    <button class="btn btn-warning rounded-pill px-3 py-2 fw-semibold shadow-sm" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Logo (desktop only) -->
+            <a class="navbar-brand d-none d-lg-block" href="#">
+                <img src="Blue.png" alt="S90 Logo" style="height: 60px;">
+            </a>
+
+            <!-- Collapsible Navbar -->
+            <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+
+                <!-- Left nav links -->
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active text-black nav-hover" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black nav-hover" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black nav-hover" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">Categories</a>
+                    </li>
+                </ul>
+
+                <!-- Desktop search -->
+                <form class="d-flex d-none d-lg-flex me-3 align-items-center" role="search"
+                    onsubmit="return handleSearch(event);">
+                    <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search"
+                        placeholder="Search products" aria-label="Search" id="navbarSearchDesktop">
+                    <button class="btn btn-warning rounded-pill px-4 fw-semibold shadow-sm search-hover" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+    </nav>
 
     <!-- Sidebar Offcanvas Menu -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarLabel"
         style="background-color: #ffffff;">
         <div class="offcanvas-header border-bottom border-light">
-            <h5 class="offcanvas-title text-white fw-semibold" id="sidebarLabel" style="color: black !important; font-family: Arial;">  <i class="bi bi-card-list"></i>
+            <h5 class="offcanvas-title text-white fw-semibold" id="sidebarLabel" style="color: black !important; font-family: poppins;">  <i class="bi bi-card-list"></i>
                 Categories</h5>
             <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
 
     <div class="offcanvas-body m-1 px-3 overflow-auto">
-        <ul class="nav flex-column gap-1 sidebar-links" style="font-family: Arial, Khmer OS Battambang;">
+        <ul class="nav flex-column gap-1 sidebar-links" style="font-family: poppins, Khmer OS Battambang;">
             <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="All">All</a></li>
             <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="KEY">សោរ-KEY</a></li>
             <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="Laser Distance Meter-LSDT">ឡាស៊ែរ-LSDT</a></li>
@@ -125,12 +139,7 @@
     </div>
     </div>
 
-
-    </ul>
-    </div>
-    </div>
-
-<!-- Sticky Category Bar -->
+    <!-- Sticky Category Bar -->
 <div class="container-fluid py-3 category-bar">
   <div class="container position-relative">
 
@@ -141,7 +150,7 @@
 
     <!-- Scrollable Buttons -->
     <div class="d-flex overflow-auto no-scrollbar px-5" id="categoryButtons" 
-         style="scroll-behavior: smooth; font-family: Arial, 'Khmer OS Battambang';">
+         style="scroll-behavior: smooth; font-family: Poppins, 'Khmer OS Battambang';">
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0 active" data-category="All">All</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="KEY-KEY">សោរ-KEY</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Laser Distance Meter-LSDT">ឡាស៊ែរ-LSDT</button>
@@ -165,7 +174,7 @@
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ថ្នាំ-PAN">ថ្នាំ-PAN</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ថ្ម បេតុង-CCSP">ថ្ម បេតុង-CCSP</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ទុយោ-TUBE">ទុយោ-TUBE</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ទុយោរទឹកស្អាត-HDPE">ទុយោរទឹកស្អាត-HDPE</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ទុយោរទឹកស្អាត-HDPE">ទុយោរទឹកស្អាត-HDPE</button>    
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="បន្ទាត់-RLSP">បន្ទាត់-RLSP</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ផ្លែតំណ-ADA">ផ្លែតំណ-ADA</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ផ្សេងៗ-OTH">ផ្សេងៗ-OTH</button>
@@ -183,143 +192,444 @@
   </div>
 </div>
 
-<!-- <script>
-  // Highlight active category button
-  document.querySelectorAll('.category-filter').forEach(btn => {
-    btn.addEventListener('click', function() {
-      // Remove active class from all buttons
-      document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
-      // Add active class to the clicked button
-      this.classList.add('active');
-    });
-  });
-</script> -->
+<!-- body -->
 
-    <div id="carouselExampleIndicators" class="carousel slide img-fluid" data-bs-ride="carousel">
-    <!-- Indicators -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-            aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
-            aria-label="Slide 5"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
-            aria-label="Slide 6"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
-            aria-label="Slide 7"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"
-            aria-label="Slide 8"></button>
-        
-    </div>
+<div class="container mt-5 no-filter" style="font-family: Arial, 'Moul'; font-size: 1.1rem;">
+    <h1 class="text-center">Welcome to SP</h1>
+    <p class="text-center">Your one-stop solution for all your needs.</p>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner text-center">
-        <div class="carousel-item active">
-            <img src="slide1.jpg" class="carousel-img d-block mx-auto" alt="Slide 1">
+    <div class="position-relative">
+
+        <!-- LEFT BUTTON -->
+        <button class="scroll-btn left" onclick="scrollCards(-1)">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <!-- SCROLL AREA -->
+        <div class="scroll-wrapper" id="categoryScroll">
+            <div class="scroll-row" id="scrollRow">
+
+                <!-- CARD 2 -->
+                <div class="scroll-card">
+                    <a class="p-0 category-filter" href="#" data-category="KEY-KEY">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/1.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class="small mb-0">សោរ-KEY</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="Laser Distance Meter-LSDT">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/2.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ឡាស៊ែរ-LSDT</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="scroll-card">
+                    <a class="p-0 category-filter" href="#" data-category="Motor-DLMT">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/3.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ម៉ូទ័រ-DLMT</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="Solar-Solar">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/4.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">សូឡា-Solar</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="Survay-SVY">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/5.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">សេវេ-SVY</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="wall&roof-WR">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/6.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងដំបូល-WR</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="Welding Magnet Support-WDMN">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/7.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងផ្សារដែក-WDMN</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ក្តារ-KDAR">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/8.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ក្តារ-KDAR</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងការ៉ូ-TLSC">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/9.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងការ៉ូ-TLSC</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងជ័រ-PLAS">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/10.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងជ័រ-PLAS</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងឈើ-WDST">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/11.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងឈើ-WDST</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងទឹក-WSP">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/12.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងទឹក-WSP</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងបន្លាស់-TMOR">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/13.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងបន្លាស់-TMOR</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងភ្លើង-ELT">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/14.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងភ្លើង-ELT</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="គ្រឿងសំអាត-CLEAN">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/15.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">គ្រឿងសំអាត-CLEAN</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ឆុត-SET">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/16.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ឆុត-SET</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ជើងទ្រ រឹត-STSP">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/17.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ជើងទ្រ រឹត-STSP</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ដែក-Iron">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/18.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ដែក-Iron</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ដែក-MTSP">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/19.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ដែក-MTSP</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ថ្នាំ-PAN">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/20.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ថ្នាំ-PAN</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ថ្ម បេតុង-CCSP">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/21.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ថ្ម បេតុង-CCSP</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ទុយោ-TUBE">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/22.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ទុយោ-TUBE</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ទុយោរទឹកស្អាត-HDPE">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/23.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ទុយោរទឹកស្អាត-HDPE</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="បន្ទាត់-RLSP">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/24.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">បន្ទាត់-RLSP</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ផ្លែតំណ-ADA">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/25.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ផ្លែតំណ-ADA</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ផ្សេងៗ-OTH">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/26.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ផ្សេងៗ-OTH</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="វីស-វីស">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/27.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">វីស-វីស</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="ស្កុត&កាវ-SCOT">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/28.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">ស្កុត&កាវ-SCOT</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="អគ្គីភ័យ-fire">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/29.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">អគ្គីភ័យ-fire</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="scroll-card">
+                    <a class=" p-0 category-filter" href="#" data-category="អំពូល-LIGHT">
+                        <div class="card h-100 shadow-sm text-center">
+                            <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
+                                <img src="Home/30.jpg" class="img-fluid p-3" alt="">
+                            </div>
+                            <div class="card-body py-2 px-2">
+                                <h6 class=" small mb-0">អំពូល-LIGHT</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="slide2.jpg" class="carousel-img d-block mx-auto" alt="Slide 2">
-        </div>
-        <div class="carousel-item">
-            <img src="slide3.jpg" class="carousel-img d-block mx-auto" alt="Slide 3">
-        </div>
-        <div class="carousel-item">
-            <img src="slide4.jpg" class="carousel-img d-block mx-auto" alt="Slide 4">
-        </div>
-        <div class="carousel-item">
-            <img src="slide5.jpg" class="carousel-img d-block mx-auto" alt="Slide 5">
-        </div>
-        <div class="carousel-item">
-            <img src="slide6.jpg" class="carousel-img d-block mx-auto" alt="Slide 6">
-        </div>
-        <div class="carousel-item">
-            <img src="slide7.jpg" class="carousel-img d-block mx-auto" alt="Slide 7">
-        </div>
-        <div class="carousel-item">
-            <img src="slide8.jpg" class="carousel-img d-block mx-auto" alt="Slide 8">
-        </div>
+
+        <!-- RIGHT BUTTON -->
+        <button class="scroll-btn right" onclick="scrollCards(1)">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+
     </div>
 </div>
 
-<style>
-.carousel-img {
-    width: 72%;
-    height: auto;
-    max-width: 100%;
-    transition: width 0.3s ease;
-}
 
-/* Medium screens (tablet) */
-@media (max-width: 992px) {
-    .carousel-img {
-        width: 90%;
-    }
-}
+<!-- -------------------------------------------------------------------------------------- -->
 
-/* Small screens (mobile) */
-@media (max-width: 576px) {
-    .carousel-img {
-        width: 100%;
-    }
-}
-</style>
-
-
-
-    <!-- Navigation arrows -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-
-    <!-- Auto-slide script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carousel = document.querySelector('#carouselExampleIndicators');
-            new bootstrap.Carousel(carousel, {
-                interval: 3000, // Auto-slide every 3 seconds
-                ride: 'carousel'
-            });
-        });
-    </script>
-</div>
-
-<style>    
-    /* Black arrows */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        filter: invert(100%) brightness(0%);
-        /* makes the default white icon black */
-    }
-
-    /* Optional: increase arrow visibility on hover */
-    .carousel-control-prev:hover .carousel-control-prev-icon,
-    .carousel-control-next:hover .carousel-control-next-icon {
-        opacity: 0.8;
-    }
-</style>
-
-    <div class="container mt-5">
-        <h1 class="text-center">Welcome to SP</h1>
-        <p class="text-center">Your one-stop solution for all your needs.</p>
+<div class="container mt-5">
+        <!-- <h1 class="text-center">Welcome to S90</h1>
+        <p class="text-center">Your one-stop solution for all your needs.</p> -->
         <div class="row g-0" style="text-align: center;">
 
             <!-- ផ្លែតំណ-ADA -->
-            <!-- <div class="col-12">
+            <div class="col-12">
                 <div class="card h-100 d-flex flex-column box img-fluid" style="border-radius: 0;">
-                    <img src="Ads/slide2.jpg" class="card-img-top" alt="..."
+                    <img src="ផ្លែតំណ-ADA/s1.jpg" class="card-img-top" alt="..."
                     style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                 </div>
-            </div> -->
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -5107,7 +5417,7 @@
 
             <div class="col-12">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Ads/s3.jpg" class="card-img-top" alt="..."
+                    <img src="KEY-KEY/s2.jpg" class="card-img-top" alt="..."
                     style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                 </div>
             </div>
@@ -8704,7 +9014,7 @@
 
             <div class="col-12">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Ads/s4.jpg" class="card-img-top" alt="..."
+                    <img src="Laser Distance Meter-LSDT/s3.jpg" class="card-img-top" alt="..."
                     style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                 </div>
             </div>
@@ -9113,6 +9423,13 @@
             </div>
 
             <!-- Motor-DLMT -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="Motor-DLMT/s4.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-12">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -11598,6 +11915,13 @@
 
             <!-- Solar-Solar -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="Solar-Solar/s5.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="Solar-Solar/1-9.jpg" class="card-img-top" alt="..."
@@ -11772,6 +12096,13 @@
             </div>
 
             <!-- Survay-SVY -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="Survay-SVY/s6.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -12077,6 +12408,13 @@
 
             <!-- wall&roof-WR -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="wall&roof-WR/s7.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="wall&roof-WR/1-3.jpg" class="card-img-top" alt="..."
@@ -12097,6 +12435,13 @@
             </div>
 
             <!-- Welding Magnet Support-WDMN -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="Welding Magnet Support-WDMN/s8.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -12514,6 +12859,13 @@
 
             <!-- ក្តារ-KDAR -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ក្តារ-KDAR/s9.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="ក្តារ-KDAR/1.jpg" class="card-img-top" alt="..."
@@ -12623,6 +12975,13 @@
             </div>
 
             <!-- គ្រឿងការ៉ូ-TLSC -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងការ៉ូ-TLSC/s10.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -13285,7 +13644,7 @@
                             <p class="card-text">SKU: TLSC0063</p>
                             <ul class="items">
                                 <li>ជើងទ្រការ៉ូ <b class="multi-price">= $3.80</b></li>
-                                <li>ជើងទ្រការ៉ូ (10គ្រាប់) <b class="multi-price">= $35.00</b></li>
+                                <li>ជើងកល់ការ៉ូជញ្ជាំង (25គ្រាប់) <b class="multi-price">= $35.00</b></li>
                             </ul>
                         </div>
                         <!-- <p class="card-text fw-bold" style="font-size: 1.3rem; font-family: inter; color: red;">Price: $59.00</p> -->
@@ -14503,6 +14862,13 @@
 
             <!-- គ្រឿងជ័រ-PLAS -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងជ័រ-PLAS/s11.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="គ្រឿងជ័រ-PLAS/1-7.jpg" class="card-img-top" alt="..."
@@ -14610,6 +14976,13 @@
             </div>
 
             <!-- គ្រឿងឈើ-WDST -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងឈើ-WDST/s12.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -17112,6 +17485,13 @@
 
             <!-- គ្រឿងទឹក-WSP -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងទឹក-WSP/s13.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="គ្រឿងទឹក-WSP/1.jpg" class="card-img-top" alt="..."
@@ -19290,6 +19670,13 @@
 
             <!-- គ្រឿងបន្លាស់-TMOR -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងបន្លាស់-TMOR/s14.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="គ្រឿងបន្លាស់-TMOR/1.jpg" class="card-img-top" alt="..."
@@ -19503,6 +19890,13 @@
             </div>
 
             <!-- គ្រឿងភ្លើង-ELT -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងភ្លើង-ELT/s15.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -23042,7 +23436,15 @@
                 </div>
             </div>
             
+
             <!-- គ្រឿងសំអាត-CLEAN -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="គ្រឿងសំអាត-CLEAN/s16.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -23097,6 +23499,13 @@
             </div>
 
             <!-- ឆុត-SET -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ឆុត-SET/s17.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -23296,7 +23705,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ឆុត-SET/1-18.jpg" class="card-img-top" alt="..."
+                    <img src="ឆុត-SET/19.jpg" class="card-img-top" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -23314,6 +23723,13 @@
             </div>
 
             <!-- ជើងទ្រ រឹត-STSP -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ជើងទ្រ រឹត-STSP/s18.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -23675,35 +24091,17 @@
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
-                            <h5 class="card-title txt-card">ជើងធ្នើដែកស</h5>
+                            <h5 class="card-title txt-card">ជើងធ្នើដែក</h5>
                             <p class="card-text">SKU: STSP0031</p>
                             <ul class="items">
-                                <li>ជើងធ្នើដែកស 2តឹក <b class="multi-price">= $4.50</b></li>
-                                <li>ជើងធ្នើដែកស 2.5តឹក​ (គូ) <b class="multi-price">= $5.00</b></li>
-                                <li>ជើងធ្នើដែកស 3តឹក <b class="multi-price">= $6.00</b></li>
-                                <li>ជើងធ្នើដែកស 3.5តឹក <b class="multi-price">= $6.50</b></li>
-                                <li>ជើងធ្នើដែកស 4តឹក <b class="multi-price">= $7.00</b></li>
-                                <li>ជើងធ្នើដែកស 4.5តឹក <b class="multi-price">= $7.50</b></li>
-                                <li>ជើងធ្នើដែកស 5តឹក​ (គូ) <b class="multi-price">= $8.00</b></li>
-                            </ul>
-                        </div>
-                        <!-- <p class="card-text fw-bold" style="font-size: 1.3rem; font-family: inter; color: red;">Price: $10.00</p> -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ជើងទ្រ រឹត-STSP/45.jpg" class="card-img-top" alt="..."
-                        style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
-                    <div class="card-body d-flex flex-column">
-                        <div>
-                            <h5 class="card-title txt-card">ជើងធ្នើដែកខ្មៅ</h5>
-                            <p class="card-text">SKU: STSP0032</p>
-                            <ul class="items">
                                 <li>ជើងធ្នើដែកខ្មៅ 2តឹក <b class="multi-price">= $4.50</b></li>
+                                <li>ជើងធ្នើដែក 2.5តឹក​ (គូ) <b class="multi-price">= $5.00</b></li>
                                 <li>ជើងធ្នើដែកខ្មៅ 2.5តឹក <b class="multi-price">= $5.00</b></li>
-                                <li>ជើងធ្នើដែកខ្មៅ 3តឹក <b class="multi-price">= $6.00</b></li>
+                                <li>ជើងធ្នើដែក 3តឹក <b class="multi-price">= $6.00</b></li>
+                                <li>ជើងធ្នើដែក 3.5តឹក <b class="multi-price">= $6.50</b></li>
+                                <li>ជើងធ្នើដែក 4តឹក <b class="multi-price">= $7.00</b></li>
+                                <li>ជើងធ្នើដែក 4.5តឹក <b class="multi-price">= $7.50</b></li>
+                                <li>ជើងធ្នើដែក 5តឹក​ (គូ) <b class="multi-price">= $8.00</b></li>
                                 <li>ជើងធ្នើដែកខ្មៅ 5តឹក <b class="multi-price">= $8.00</b></li>
                             </ul>
                         </div>
@@ -23711,7 +24109,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="ជើងទ្រ រឹត-STSP/49-50.jpg" class="card-img-top" alt="..."
@@ -23722,10 +24119,9 @@
                             <p class="card-text">SKU: STSP0033</p>
                             <ul class="items">
                                 <li>ជើងធ្នើអ៊ីណុក 2.5តឹក (គូ) <b class="multi-price">= $7.00</b></li>
-                                <li>ជើងធ្នើអុីណុក 3តឹក <b class="multi-price">= $8.00</b></li>
+                                <li>ជើងធ្នើអ៊ីណុក 5តឹក (គូ) <b class="multi-price">= $10.00</b></li>
                                 <li>ជើងធ្នើអុីណុក 4តឹក <b class="multi-price">= $9.00</b></li>
                                 <li>ជើងធ្នើអ៊ីណុក 4.5តឹក <b class="multi-price">= $9.50</b></li>
-                                <li>ជើងធ្នើអ៊ីណុក 5តឹក (គូ) <b class="multi-price">= $10.00</b></li>
                             </ul>
                         </div>
                         <!-- <p class="card-text fw-bold" style="font-size: 1.3rem; font-family: inter; color: red;">Price: $10.00</p> -->
@@ -24105,6 +24501,13 @@
 
             <!-- ដែក-Iron -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ដែក-Iron/s19.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="ដែក-Iron/1-6.jpg" class="card-img-top" alt="..."
@@ -24221,6 +24624,13 @@
 
             <!-- ដែក-MTSP -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ដែក-MTSP/s20.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="ដែក-MTSP/1.jpg" class="card-img-top" alt="..."
@@ -24319,7 +24729,6 @@
                         <div>
                             <h5 class="card-title txt-card">គ្រាប់មិន</h5>
                             <p class="card-text">SKU: MTSP0003</p>
-
                         </div>
                         <p class="card-text fw-bold" style="font-size: 1.3rem; font-family: inter; color: red;">Price:
                             $0.75</p>
@@ -25348,6 +25757,13 @@
 
             <!-- ថ្នាំ-PAN -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ថ្នាំ-PAN/s21.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="ថ្នាំ-PAN/1-4.jpg" class="card-img-top" alt="..."
@@ -26260,6 +26676,13 @@
 
             <!-- ថ្ម បេតុង-CCSP -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ថ្ម បេតុង-CCSP/s22.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="ថ្ម បេតុង-CCSP/1-5.jpg" class="card-img-top" alt="..."
@@ -26477,6 +26900,13 @@
             </div>
 
             <!-- ទុយោ-TUBE -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ទុយោ-TUBE/s23.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -28299,6 +28729,13 @@
             </div> 
             
             <!-- ទុយោរទឹកស្អាត-HDPE -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ទុយោរទឹកស្អាត-HDPE/s24.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -28495,6 +28932,13 @@
             </div>
 
             <!-- បន្ទាត់-RLSP -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="បន្ទាត់-RLSP/s25.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -29265,6 +29709,13 @@
             </div>             
             
             <!-- ផ្សេងៗ-OTH -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ផ្សេងៗ-OTH/s26.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -31816,6 +32267,13 @@
             
             <!-- វីស-វីស -->
 
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="វីស-វីស/s27.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
+
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
                     <img src="វីស-វីស/1.jpg" class="card-img-top" alt="..."
@@ -32643,6 +33101,13 @@
             </div>
             
             <!-- ស្កុត&កាវ-SCOT -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="ស្កុត&កាវ-SCOT/s28.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -33180,6 +33645,13 @@
             </div>
             
             <!-- អគ្គីភ័យ-fire -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="អគ្គីភ័យ-fire/s29.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -33218,6 +33690,13 @@
             </div>
 
             <!-- អំពូល-LIGHT -->
+
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
+                    <img src="អំពូល-LIGHT/s30.jpg" class="card-img-top" alt="..."
+                    style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
+                </div>
+            </div>
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
@@ -33406,62 +33885,79 @@
     </div>
  
     <!-- Finished 27/09/2025 -->
- 
-    <a href="https://t.me/simplyshoppingKH"
-   title="Contact us on Telegram"
-   style="
-     position: fixed;
-     bottom: 80px;
-     right: 20px;
-     z-index: 99;
-     background-color: blue;
-     color: white;
-     border-radius: 50%;
-     width: 50px;
-     height: 50px;
-     font-size: 35px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     text-decoration: none;
-     margin-bottom: 70px;
-   ">
-   <i class="bi bi-telegram"></i>
-</a>
 
-    <a href="https://www.facebook.com/share/1BDdVZ1YMY/?mibextid=wwXIfr"
-   title="Our Facebook page"
-   style="
-     position: fixed;
-     bottom: 80px;
-     right: 20px;
-     z-index: 99;
-     background-color: blue;
-     color: white;
-     border-radius: 50%;
-     width: 50px;
-     height: 50px;
-     font-size: 35px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     text-decoration: none;
-     margin-bottom: 140px;
-   ">
-   <i class="bi bi-facebook"></i>
-</a>
+    <!-- Floating buttons for Telegram and Facebook -->
 
+    <a href="#" title="Home" id="homeBtn" style="
+         position: fixed;
+         bottom: 80px;
+         right: 20px;
+         z-index: 99;
+         background-color: blue;
+         color: white;
+         border-radius: 50%;
+         width: 50px;
+         height: 50px;
+         font-size: 35px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         margin-bottom: 140px;
+       ">
+        <img src="homei.png" alt="Home" style="width: 30px; height: 30px;">
+    </a>
+    
+    <a href="https://www.facebook.com/share/17WEzkFb4s/?mibextid=wwXIfr" title="Our Facebook page" style="
+         position: fixed;
+         bottom: 80px;
+         right: 20px;
+         z-index: 99;
+         background-color: blue;
+         color: white;
+         border-radius: 50%;
+         width: 50px;
+         height: 50px;
+         font-size: 35px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         margin-bottom: 70px;
+       ">
+        <i class="bi bi-facebook"></i>
+    </a>
 
+     <a href="https://t.me/S90contructionsupply" title="Contact us on Telegram" style="
+         position: fixed;
+         bottom: 80px;
+         right: 20px;
+         z-index: 99;
+         background-color: blue;
+         color: white;
+         border-radius: 50%;
+         width: 50px;
+         height: 50px;
+         font-size: 35px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         margin-bottom: 7px;
+       ">
+        <i class="bi bi-telegram"></i>
+    </a>    
+    
     <button onclick="scrollToTop()" id="goToTopBtn" title="Go to top"
-        style="position: fixed; bottom: 80px; right: 20px; display: none; z-index: 99; background-color: #007bff; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; color: white;">
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; background-color: #007bff; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; color: white;">
         <i class="bi bi-chevron-up"></i>
     </button>
     
     <button onclick="scrollToBottom()" id="goToBottomBtn" title="Go to bottom"
-        style="position: fixed; bottom: 80px; right: 20px; display: none; z-index: 99; background-color: #c74444; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; color: white;">
+        style="position: fixed; bottom: 20px; right: 20px; display: none; z-index: 99; background-color: #c74444; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; color: white;">
         <i class="bi bi-chevron-down"></i>
     </button>
-
+    
     <!-- goToBottomBtn -->
     <script>
         // Already in HTML, so just reference
@@ -33512,7 +34008,7 @@
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     </script>
-
+    
     <!-- goToTopBtn -->
     <script>
         let lastScrollTop = 0;
@@ -33549,119 +34045,128 @@
         }
     </script>
 
+    <!-- Search Functionality -->
     <script>
         const desktopInput = document.getElementById('navbarSearchDesktop');
-            const mobileInput = document.getElementById('navbarSearchMobile');
+        const mobileInput = document.getElementById('navbarSearchMobile');
 
-            // Helper to get active input (visible one)
-            function getActiveInput() {
-                if (window.getComputedStyle(desktopInput.closest('form')).display !== 'none') {
-                    return desktopInput;
-                } else {
-                    return mobileInput;
-                }
+        // Helper to get active input (visible one)
+        function getActiveInput() {
+            if (window.getComputedStyle(desktopInput.closest('form')).display !== 'none') {
+                return desktopInput;
+            } else {
+                return mobileInput;
             }
+        }
 
-            // Main search handler
-            function handleSearch(event) {
-                event.preventDefault();
-                const input = getActiveInput();
+        // Main search handler
+        function handleSearch(event) {
+            event.preventDefault();
+            const input = getActiveInput();
+            const query = input.value.trim().toLowerCase();
+            filterCards(query);
+            return false;
+        }
+
+        // Live search for both inputs
+        [desktopInput, mobileInput].forEach(input => {
+            input.addEventListener('input', () => {
                 const query = input.value.trim().toLowerCase();
                 filterCards(query);
-                return false;
-            }
+            });
+        });
 
-            // Live search for both inputs
-            [desktopInput, mobileInput].forEach(input => {
-                input.addEventListener('input', () => {
-                    const query = input.value.trim().toLowerCase();
-                    filterCards(query);
-                });
+        function filterCards(query) {
+            const cards = document.querySelectorAll('.card');
+            let found = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+                const sku = card.querySelector('.card-text')?.textContent.toLowerCase() || '';
+                const match = title.includes(query) || sku.includes(query);
+
+                card.parentElement.style.display = match ? '' : 'none';
+                if (match) found = true;
             });
 
-            function filterCards(query) {
-                const cards = document.querySelectorAll('.card');
-                let found = false;
-
-                cards.forEach(card => {
-                    const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
-                    const sku = card.querySelector('.card-text')?.textContent.toLowerCase() || '';
-                    const match = title.includes(query) || sku.includes(query);
-
-                    card.parentElement.style.display = match ? '' : 'none';
-                    if (match) found = true;
-                });
-
-                if (found && query !== '') {
-                    const firstVisible = Array.from(cards).find(card => card.parentElement.style.display !== 'none');
-                    if (firstVisible) firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+            if (found && query !== '') {
+                const firstVisible = Array.from(cards).find(card => card.parentElement.style.display !== 'none');
+                if (firstVisible) firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
+        }
     </script>
-
-    <footer class="text-light" style="background: black; font-family: 'Inter', sans-serif;">
+    
+    <footer class="text-light"
+        style="background: linear-gradient(135deg, #0f172a, #1e293b); font-family: 'Inter', sans-serif;">
         <div class="container py-5">
-
+    
             <div class="row text-center text-md-start g-4">
-
-            <div class="col-md-6">
-                <h5 class="fw-bold mb-3" style="font-family: Khmer OS Battambang, poppins;">
-                <i class="bi bi-geo-alt-fill text-warning"></i> ទីតាំង
-                </h5>
-                <p style="font-family: 'Khmer OS Battambang';" class="mb-2">
-                <i class="bi bi-geo-alt-fill text-info"></i>
-                ទីតាំងទី1: ផ្ទះ111, ផ្លូវ122, សង្កាត់ទឹកល្អក់ទី1, ខណ្ឌទួលគោក, ក្រោយឈាងខាងកើតពេទ្យកុមារជាតិ100ម៉ែត្រ, ភ្នំពេញ<br>
-                <i class="bi bi-map text-primary"></i>
-                <a href="https://maps.app.goo.gl/uhxTuiReJewNuBXq6" class="text-decoration-none text-info">មើលទីតាំងទី1</a>
-                </p>
-
-                <p style="font-family: 'Khmer OS Battambang';">
-                <i class="bi bi-geo-alt-fill text-info"></i>
-                ទីតាំងទី2: ផ្លូវមហាវិថីអង្គរ ហួសក្រសួងដែនដី 200ម៉ែត្រ ជាប់ការ៉ាស់សាំង PTT សង្កាត់ស្វាយប៉ាក រាជធានីភ្នំពេញ<br>
-                <i class="bi bi-map text-primary"></i>
-                <a href="https://maps.app.goo.gl/UmzzsM3j3DiY2CCz8" class="text-decoration-none text-info">មើលទីតាំងទី2</a>
-                </p>
-            </div>
-
-            <div class="col-md-6">
-                <h5 class="fw-bold mb-3">
-                <i class="bi bi-telephone-fill text-warning"></i> Contact
-                </h5>
-                <p class="mb-2">
-                <i class="bi bi-telegram text-info"></i>
-                <strong>Telegram:</strong> 099288993 / 077955822
-                </p>
-                <p class="mb-2">
-                <i class="bi bi-telephone text-success"></i>
-                <strong>Smart:</strong> 010288993 / 081955822
-                </p>
-                <p class="mb-3">
-                <i class="bi bi-telephone text-danger"></i>
-                <strong>Metfone:</strong> 0312288993 / 067955822
-                </p>
-
-                <div style="font-family: 'Khmer OS Battambang';">
-                <a href="https://www.facebook.com/share/17WEzkFb4s/?mibextid=wwXIfr" class="text-decoration-none text-light d-block mb-2">
-                    <i class="bi bi-facebook fs-5 text-primary text-info"></i> S90 ស៊ុយកៅផ្គត់ផ្គង់គ្រឿងសំណង់
-                </a>
-                <a href="https://www.facebook.com/share/1BDdVZ1YMY/?mibextid=wwXIfr" class="text-decoration-none text-light d-block">
-                    <i class="bi bi-facebook fs-5 text-primary text-info"></i> SP លក់គ្រឿងបរិក្ខារសំណង់
-                </a>
+    
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3" style="font-family: Khmer OS Battambang, poppins;">
+                        <i class="bi bi-geo-alt-fill text-warning"></i> ទីតាំង
+                    </h5>
+                    <p style="font-family: 'Khmer OS Battambang';" class="mb-2">
+                        <i class="bi bi-geo-alt-fill text-info"></i>
+                        ទីតាំងទី1: ផ្ទះ111, ផ្លូវ122, សង្កាត់ទឹកល្អក់ទី1, ខណ្ឌទួលគោក, ក្រោយឈាងខាងកើតពេទ្យកុមារជាតិ100ម៉ែត្រ,
+                        ភ្នំពេញ<br>
+                        <i class="bi bi-map text-primary"></i>
+                        <a href="https://maps.app.goo.gl/uhxTuiReJewNuBXq6"
+                            class="text-decoration-none text-info">មើលទីតាំងទី1</a>
+                    </p>
+    
+                    <p style="font-family: 'Khmer OS Battambang';">
+                        <i class="bi bi-geo-alt-fill text-info"></i>
+                        ទីតាំងទី2: ផ្លូវមហាវិថីអង្គរ ហួសក្រសួងដែនដី 200ម៉ែត្រ ជាប់ការ៉ាស់សាំង PTT សង្កាត់ស្វាយប៉ាក
+                        រាជធានីភ្នំពេញ<br>
+                        <i class="bi bi-map text-primary"></i>
+                        <a href="https://maps.app.goo.gl/UmzzsM3j3DiY2CCz8"
+                            class="text-decoration-none text-info">មើលទីតាំងទី2</a>
+                    </p>
+                </div>
+    
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-telephone-fill text-warning"></i> Contact
+                    </h5>
+                    <p class="mb-2">
+                        <i class="bi bi-telegram text-info"></i>
+                        <strong>Telegram:</strong> 099288993 / 077955822
+                    </p>
+                    <p class="mb-2">
+                        <i class="bi bi-telephone text-success"></i>
+                        <strong>Smart:</strong> 010288993 / 081955822
+                    </p>
+                    <p class="mb-3">
+                        <i class="bi bi-telephone text-danger"></i>
+                        <strong>Metfone:</strong> 0312288993 / 067955822
+                    </p>
+    
+                    <div style="font-family: 'Khmer OS Battambang';">
+                        <a href="https://www.facebook.com/share/17WEzkFb4s/?mibextid=wwXIfr"
+                            class="text-decoration-none text-light d-block mb-2">
+                            <i class="bi bi-facebook fs-5 text-primary text-info"></i> S90 ស៊ុយកៅផ្គត់ផ្គង់គ្រឿងសំណង់
+                        </a>
+                        <a href="https://www.facebook.com/share/1BDdVZ1YMY/?mibextid=wwXIfr"
+                            class="text-decoration-none text-light d-block">
+                            <i class="bi bi-facebook fs-5 text-primary text-info"></i> SP លក់គ្រឿងបរិក្ខារសំណង់
+                        </a>
+                    </div>
                 </div>
             </div>
-            </div>
-
+    
             <hr class="border-secondary my-4">
-
+    
             <div class="text-center small text-secondary">
-            <p class="mb-0">© 2025 <span class="text-light fw-semibold">S90</span>. All rights reserved.</p>
+                <p class="mb-0">© 2025 <span class="text-light fw-semibold">S90</span>. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+    
+    <!-- scroll bar -->
     <script>
         const scrollContainer = document.getElementById('categoryButtons');
         const btnLeft = document.querySelector('.scroll-btn.left');
@@ -33717,165 +34222,156 @@
             startTouchX = x;
         });
     </script>
+    
+    <!-- Category filter script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.category-filter');
 
-    <!-- categories filter + scroll auto-highlight -->
+        // ❗ Only cards NOT inside .no-filter
+        const cardElements = Array.from(
+            document.querySelectorAll('.card')
+        ).filter(card => !card.closest('.no-filter'));
+
+        if (!buttons.length) {
+            console.warn('No .category-filter buttons found.');
+            return;
+        }
+
+        function findWrapper(card) {
+            return card.closest('[class*="col-"]') || card.parentElement || card;
+        }
+
+        // 🔒 Hide only filterable cards on load
+        cardElements.forEach(card => {
+            const wrapper = findWrapper(card);
+            if (wrapper) wrapper.style.display = 'none';
+        });
+
+        function normalize(str) {
+            return (str || '')
+                .toString()
+                .normalize('NFKC')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .toLowerCase();
+        }
+
+        function onClickHandler(e) {
+            e.preventDefault();
+            const btn = e.currentTarget;
+            const category = (btn.dataset.category || '').trim();
+
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const nCat = normalize(category);
+
+            cardElements.forEach(card => {
+                const wrapper = findWrapper(card);
+                if (!wrapper) return;
+
+                const cardCategory = card.dataset.category || '';
+                let matched = false;
+
+                if (category === 'All' || category === '') {
+                    matched = true;
+                } else if (cardCategory) {
+                    matched = normalize(cardCategory).includes(nCat);
+                } else {
+                    const img = card.querySelector('img');
+                    const src = img ? img.getAttribute('src') : '';
+                    matched = normalize(src).includes(nCat);
+                }
+
+                wrapper.style.display = matched ? '' : 'none';
+            });
+
+            // Close offcanvas (mobile)
+            try {
+                const off = document.getElementById('sidebarMenu');
+                if (off && window.bootstrap?.Offcanvas) {
+                    bootstrap.Offcanvas.getInstance(off)?.hide();
+                }
+            } catch {}
+        }
+
+        buttons.forEach(btn => btn.addEventListener('click', onClickHandler));
+        });
+    </script>
+
+    <!-- category scroll script -->
+    <script>
+        function scrollCards(direction) {
+            const container = document.getElementById("categoryScroll");
+            const card = container.querySelector(".scroll-card");
+            const scrollAmount = card.offsetWidth * 3;
+
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        const wrapper = document.getElementById("categoryScroll");
+        const row = document.getElementById("scrollRow");
 
-            const buttons = document.querySelectorAll('.category-filter');
-            const cards = Array.from(document.querySelectorAll('.card'));
+        /* ===== INFINITE LOOP ===== */
+        const originals = [...row.children];
+        originals.forEach(c => row.appendChild(c.cloneNode(true)));
+        originals.forEach(c => row.insertBefore(c.cloneNode(true), row.firstChild));
 
-            if (!buttons.length || !cards.length) return;
+        setTimeout(() => {
+            wrapper.scrollLeft = row.scrollWidth / 3;
+        }, 50);
 
-            // =========================
-            // HELPERS
-            // =========================
+        /* ===== SCROLL AMOUNT ===== */
+        function cardsPerScroll() {
+            return window.innerWidth <= 576 ? 2 : 3;
+        }
 
-            function findWrapper(card) {
-                return card.closest('[class*="col-"]') || card.parentElement || card;
-            }
-
-            function normalize(str) {
-                return (str || '')
-                    .toString()
-                    .normalize('NFKC')
-                    .replace(/\s+/g, ' ')
-                    .trim()
-                    .toLowerCase();
-            }
-
-            function getCategoryFromCard(card) {
-                const img = card.querySelector('img');
-                if (!img) return null;
-
-                const src = img.getAttribute('src') || '';
-                const parts = src.split('/');
-
-                if (parts.length > 1) {
-                    return parts[0].trim();
-                }
-
-                return null;
-            }
-
-            // =========================
-            // CLICK FILTER
-            // =========================
-
-            function filterByCategory(category) {
-
-                const normalizedCategory = normalize(category);
-
-                cards.forEach(card => {
-
-                    const wrapper = findWrapper(card);
-                    if (!wrapper) return;
-
-                    if (normalizedCategory === 'all') {
-                        wrapper.style.display = '';
-                        return;
-                    }
-
-                    const cardCategory = getCategoryFromCard(card);
-                    const normalizedCardCategory = normalize(cardCategory);
-
-                    if (normalizedCardCategory === normalizedCategory) {
-                        wrapper.style.display = '';
-                    } else {
-                        wrapper.style.display = 'none';
-                    }
-
-                });
-
-                // highlight active button
-                buttons.forEach(btn => {
-                    if (normalize(btn.getAttribute('data-category')) === normalizedCategory) {
-                        btn.classList.add('active');
-
-                        btn.scrollIntoView({
-                            behavior: "smooth",
-                            inline: "center",
-                            block: "nearest"
-                        });
-
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-
-                // close offcanvas if exists
-                try {
-                    const off = document.getElementById('sidebarMenu');
-                    if (off && bootstrap && bootstrap.Offcanvas) {
-                        const inst = bootstrap.Offcanvas.getInstance(off);
-                        if (inst) inst.hide();
-                    }
-                } catch (err) {}
-            }
-
-            buttons.forEach(btn => {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const category = this.getAttribute('data-category');
-                    filterByCategory(category);
-                });
+        function scrollCards(dir) {
+            const cardWidth = row.querySelector(".scroll-card").offsetWidth;
+            wrapper.scrollBy({
+                left: dir * cardWidth * cardsPerScroll(),
+                behavior: "smooth"
             });
+        }
 
-            // =========================
-            // AUTO HIGHLIGHT ON SCROLL
-            // =========================
-
-            window.addEventListener('scroll', function () {
-
-                let currentCategory = null;
-
-                for (let card of cards) {
-
-                    const wrapper = findWrapper(card);
-                    if (!wrapper || wrapper.style.display === 'none') continue;
-
-                    const rect = wrapper.getBoundingClientRect();
-
-                    if (rect.top >= 0 && rect.top <= window.innerHeight * 0.35) {
-                        currentCategory = getCategoryFromCard(card);
-                        break;
-                    }
-                }
-
-                if (!currentCategory) return;
-
-                const normalizedCurrent = normalize(currentCategory);
-
-                buttons.forEach(btn => {
-
-                    const btnCategory = normalize(btn.getAttribute('data-category'));
-
-                    if (btnCategory === normalizedCurrent) {
-
-                        if (!btn.classList.contains('active')) {
-                            btn.classList.add('active');
-
-                            btn.scrollIntoView({
-                                behavior: "smooth",
-                                inline: "center",
-                                block: "nearest"
-                            });
-                        }
-
-                    } else {
-                        btn.classList.remove('active');
-                    }
-
-                });
-
-            });
-
+        /* ===== LOOP FIX ===== */
+        wrapper.addEventListener("scroll", () => {
+            const section = row.scrollWidth / 3;
+            if (wrapper.scrollLeft < section * .5) wrapper.scrollLeft += section;
+            if (wrapper.scrollLeft > section * 1.5) wrapper.scrollLeft -= section;
         });
-</script>
 
-<script defer src="/_vercel/insights/script.js"></script>
+        /* ===== TOUCH SWIPE ===== */
+        let isDown = false, startX = 0, startScroll = 0;
 
+        wrapper.addEventListener("pointerdown", e => {
+            isDown = true;
+            startX = e.pageX;
+            startScroll = wrapper.scrollLeft;
+            wrapper.style.scrollBehavior = "auto";
+        });
+
+        wrapper.addEventListener("pointermove", e => {
+            if (!isDown) return;
+            wrapper.scrollLeft = startScroll - (e.pageX - startX) * 1.2;
+        });
+
+        wrapper.addEventListener("pointerup", () => {
+            isDown = false;
+            wrapper.style.scrollBehavior = "smooth";
+        });
+
+        wrapper.addEventListener("pointerleave", () => isDown = false);
+    </script>
+
+    <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
