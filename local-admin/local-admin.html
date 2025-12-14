@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>S90 Local Admin</title>
+<title>SP Product Admin</title>
 <style>
 :root{--bg:#f4f5f7;--card:#fff;--ink:#1d2330;--mut:#667085;--line:#e3e6ec;--pri:#0b5ed7;--pri-d:#0a4eb3;--dan:#c62828;--ok:#1b7f3b;--warn:#a15c00}
 *{box-sizing:border-box}
@@ -45,7 +45,7 @@ small{color:var(--mut)}
 
 <div id="loginView" class="login hidden">
   <div class="card">
-    <h2 style="margin-top:0">S90 Local Admin</h2>
+    <h2 style="margin-top:0">SP Product Admin</h2>
     <small>Enter the password shown in the terminal window.</small>
     <label for="pw">Password</label>
     <input id="pw" type="password" autocomplete="current-password" autofocus>
@@ -56,7 +56,7 @@ small{color:var(--mut)}
 
 <div id="appView" class="hidden">
   <header>
-    <h1>S90 Local Admin</h1>
+    <h1>SP Product Admin</h1>
     <span id="gitInfo" class="tag"></span>
     <button id="pullBtn" class="btn" title="Download newer changes from GitHub (useful when you also edit on another PC)">Sync from GitHub</button>
     <button id="pubBtn" class="btn pri">Publish to GitHub</button>
@@ -103,7 +103,7 @@ var staticLimit=100;
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function imgUrl(p){return p?'/'+p.split('/').map(encodeURIComponent).join('/'):''}
 function api(method,path,body){
-  var opt={method:method,headers:{'X-S90-Admin':'1'},credentials:'same-origin'};
+  var opt={method:method,headers:{'X-SP-Admin':'1'},credentials:'same-origin'};
   if(body!==undefined){opt.headers['Content-Type']='application/json';opt.body=JSON.stringify(body)}
   return fetch(path,opt).then(function(r){return r.json().catch(function(){return {ok:false,error:'Bad server reply'}}).then(function(j){
     if(!r.ok||j.ok===false){var e=new Error(j.error||j.message||('Error '+r.status));e.status=r.status;e.data=j;throw e}return j})});

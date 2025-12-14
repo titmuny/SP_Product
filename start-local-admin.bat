@@ -1,7 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-title SP Local Admin
+title SP Product Admin
 
 where node >nul 2>nul
 if errorlevel 1 (
@@ -11,12 +11,13 @@ if errorlevel 1 (
 )
 where git >nul 2>nul
 if errorlevel 1 (
-  echo WARNING: Git was not found. You can edit products, but "Publish to GitHub" will not work
+  echo WARNING: Git was not found. You can edit SP products locally, but "Publish to GitHub" will not work
   echo until Git for Windows is installed from https://git-scm.com
   echo.
 )
 
+set "SP_ADMIN_PORT=4177"
 node local-admin\server.js
 echo.
-echo The dashboard has stopped.
+echo The SP product dashboard has stopped.
 pause

@@ -1,6 +1,6 @@
-# SP Website — Updated S90-style layout
+# SP Website and Local Product Admin
 
-This project uses the responsive layout, CSS, navigation behavior, and cart interaction from S90 while retaining SP branding/assets and SP's Telegram order destination.
+This is the SP website and product catalog. The local admin manages SP's `catalog.json` and does not patch website pages when it starts.
 
 ## Run locally
 1. Install Node.js LTS.

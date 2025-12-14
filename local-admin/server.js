@@ -1,4 +1,4 @@
-/* S90 Local Admin server — zero dependencies (Node.js 18+).
+/* SP Local Admin server — zero dependencies (Node.js 18+).
  * Runs ONLY on 127.0.0.1. Manages catalog.json + uploads/products and publishes via git. */
 'use strict';
 const http = require('node:http');
@@ -9,7 +9,8 @@ const { execFile } = require('node:child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const ADMIN_DIR = __dirname;
-const PORT = Number(process.env.S90_ADMIN_PORT || 4177);
+const BASE_PORT = Number(process.env.SP_ADMIN_PORT || 4177);
+let PORT = BASE_PORT;
 const HOST = '127.0.0.1';
 const CATALOG_FILE = path.join(ROOT, 'catalog.json');
 const UPLOAD_DIR = path.join(ROOT, 'uploads', 'products');
@@ -68,15 +69,15 @@ function parseSite() {
   for (const file of ['index.html', 'home.html']) {
     let html = '';
     try { html = fs.readFileSync(path.join(ROOT, file), 'utf8'); } catch { continue; }
-    const re = /<button[^>]*class="[^"]*category-filter[^"]*"[^>]*data-category="([^"]+)"[^>]*>([^<]+)</g;
+    const re = /<(?:button|a)[^>]*class="[^"]*category-filter[^"]*"[^>]*data-category="([^"]+)"[^>]*>([\s\S]*?)<\/(?:button|a)>/g;
     let m;
     while ((m = re.exec(html))) {
       const value = decodeEntities(m[1]).trim();
       if (!value || value === 'All' || seenCat.has(value)) continue;
       seenCat.add(value);
-      cats.push({ value, label: decodeEntities(m[2]).trim() });
+      cats.push({ value, label: decodeEntities(m[2].replace(/<[^>]+>/g, '')).trim() });
     }
-    const parts = html.split(/<div class="card h-100 d-flex flex-column box(?: s90-square-card)?"/);
+    const parts = html.split(/<div class="card h-100 d-flex flex-column box[^"]*"/);
     for (let i = 1; i < parts.length; i++) {
       const blk = parts[i].slice(0, 30000);
       const sku = /SKU:\s*([^\s<|,;]+)/i.exec(blk);
@@ -214,7 +215,7 @@ function parseCookies(req) {
   return out;
 }
 function currentSession(req) {
-  const tok = parseCookies(req).s90_admin;
+  const tok = parseCookies(req).sp_admin;
   const s = tok && sessions.get(tok);
   if (!s) return null;
   if (Date.now() > s.exp) { sessions.delete(tok); return null; }
@@ -263,7 +264,7 @@ async function publish() {
       else return { ok: true, message: 'Nothing to publish — no changes found.', log };
     } else {
       log.push(diff.out.split('\n').slice(0, 40).join('\n') + (diff.out.split('\n').length > 40 ? '\n...' : ''));
-      const msg = 'S90 admin: update catalog ' + nowIso().slice(0, 16).replace('T', ' ');
+      const msg = 'SP admin: update catalog ' + nowIso().slice(0, 16).replace('T', ' ');
       const commit = await git(['commit', '-m', msg]);
       log.push('$ git commit\n' + (commit.out || commit.err));
       if (!commit.ok) {
@@ -416,7 +417,7 @@ const server = http.createServer(async (req, res) => {
       if (req.method === 'POST') {
         const origin = req.headers.origin;
         if (origin && origin !== 'http://' + host) throw new HttpError(403, 'Bad origin.');
-        if (req.headers['x-s90-admin'] !== '1') throw new HttpError(403, 'Missing header.');
+        if (req.headers['x-sp-admin'] !== '1') throw new HttpError(403, 'Missing header.');
       }
       if (route === 'POST /api/login') {
         const b = await readBody(req);
@@ -429,11 +430,11 @@ const server = http.createServer(async (req, res) => {
         failCount = 0;
         const token = crypto.randomBytes(32).toString('hex');
         sessions.set(token, { exp: Date.now() + SESSION_MS });
-        return send(res, 200, { ok: true }, { 'Set-Cookie': `s90_admin=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=${SESSION_MS / 1000}` });
+        return send(res, 200, { ok: true }, { 'Set-Cookie': `sp_admin=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=${SESSION_MS / 1000}` });
       }
       if (route === 'POST /api/logout') {
-        const tok = parseCookies(req).s90_admin; if (tok) sessions.delete(tok);
-        return send(res, 200, { ok: true }, { 'Set-Cookie': 's90_admin=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' });
+        const tok = parseCookies(req).sp_admin; if (tok) sessions.delete(tok);
+        return send(res, 200, { ok: true }, { 'Set-Cookie': 'sp_admin=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0' });
       }
       if (route === 'GET /api/session') return send(res, 200, { loggedIn: !!currentSession(req) });
       if (!currentSession(req)) throw new HttpError(401, 'Please log in.');
@@ -463,24 +464,25 @@ const server = http.createServer(async (req, res) => {
 
 /* ---------- start ---------- */
 function start() {
-  const { patchSite } = require('./patch-site.js');
-  try { for (const line of patchSite(ROOT)) console.log('[site] ' + line); }
-  catch (e) { console.error('[site] Could not patch the website files: ' + e.message); process.exit(1); }
   ensureGitignoreLines(['local-admin/.admin-auth.json', 'local-admin/backups/', 'catalog.json.tmp-*']);
   if (!fs.existsSync(CATALOG_FILE)) saveCatalog({ products: [], overrides: {} });
   fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   const firstPassword = initAuth();
   server.on('error', (e) => {
-    console.error(e.code === 'EADDRINUSE'
-      ? `Port ${PORT} is already in use. Is the dashboard already running in another window?`
-      : String(e));
+    if (e.code === 'EADDRINUSE' && PORT < BASE_PORT + 20) {
+      PORT += 1;
+      console.log(`Port ${PORT - 1} is busy; trying ${PORT}.`);
+      server.listen(PORT, HOST);
+      return;
+    }
+    console.error(e.code === 'EADDRINUSE' ? `No free SP admin port found from ${BASE_PORT} to ${PORT}.` : String(e));
     process.exit(1);
   });
   server.listen(PORT, HOST, () => {
     console.log('');
-    if (firstPassword) console.log('S90 LOCAL ADMIN PASSWORD (save it): ' + firstPassword);
-    else console.log('S90 LOCAL ADMIN: using the password generated the first time (stored hashed in local-admin\\.admin-auth.json).');
-    console.log('S90 LOCAL ADMIN running at:');
+    if (firstPassword) console.log('SP LOCAL ADMIN PASSWORD (save it): ' + firstPassword);
+    else console.log('SP LOCAL ADMIN: enter the password generated the first time (stored hashed in local-admin\\.admin-auth.json).');
+    console.log('SP LOCAL ADMIN running at:');
     console.log(`http://${HOST}:${PORT}/local-admin.html`);
     console.log('\nKeep this window open. Press Ctrl+C to stop.');
   });

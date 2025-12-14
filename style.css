@@ -475,15 +475,14 @@ img {
 }
 
 #topBanner img {
-  width: 100%;
+  width: min(100%, 864px);
   height: auto;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   #topBanner img {
-    height: 96px;
-    object-fit: cover;
-    object-position: center;
+    height: auto;
   }
 }
 
@@ -768,6 +767,7 @@ body {
 .s90-page-body { scroll-behavior: smooth; font-family: Poppins, 'Khmer OS Battambang'; }
 .s90-page-footer { background: linear-gradient(135deg, #0f172a, #1e293b); font-family: 'Inter', sans-serif; }
 .s90-product-image { border-radius: 0; max-height: fit-content; margin: 0 auto; }
+.home-category-banner { width: min(100%, 864px); height: auto; object-fit: contain; }
 .s90-product-price { font-size: 1.3rem; font-family: inter; color: red; }
 .s90-sidebar-links { font-family: poppins, Khmer OS Battambang; }
 .s90-sidebar-panel .s90-sidebar-links { width: 100%; margin: 0; padding: 0; }
