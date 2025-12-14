@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S90 Local Admin</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#1d2330;--mut:#667085;--line:#e3e6ec;--pri:#0b5ed7;--pri-d:#0a4eb3;--dan:#c62828;--ok:#1b7f3b;--warn:#a15c00}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Segoe UI","Khmer OS Battambang","Noto Sans Khmer",system-ui,sans-serif}
+button,input,select{font:inherit}
+.hidden{display:none!important}
+header{background:#14213d;color:#fff;padding:12px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+header h1{font-size:18px;margin:0;flex:1;min-width:160px}
+main{max-width:1150px;margin:0 auto;padding:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:7px;cursor:pointer}
+.btn:hover{background:#f0f2f6}.btn.pri{background:var(--pri);border-color:var(--pri);color:#fff}.btn.pri:hover{background:var(--pri-d)}
+.btn.dan{color:var(--dan);border-color:#e7b5b5}.btn.sm{padding:4px 9px;font-size:13px}
+.btn:disabled{opacity:.55;cursor:wait}
+header .btn{background:transparent;color:#fff;border-color:#ffffff55}header .btn.pri{background:#2f80ff;border-color:#2f80ff}
+input[type=text],input[type=password],input[type=number],select{width:100%;padding:8px 10px;border:1px solid #cfd4dc;border-radius:7px;background:#fff}
+label{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}.tab{padding:8px 14px;border-radius:7px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.tab.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+table{width:100%;border-collapse:collapse}th,td{padding:8px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font-size:12px;text-transform:uppercase;color:var(--mut);letter-spacing:.04em}
+td img,.thumb{width:48px;height:48px;object-fit:cover;border-radius:6px;background:#eee;display:block}
+.tag{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;background:#eef1f6;color:var(--mut)}.tag.ok{background:#e3f4e8;color:var(--ok)}.tag.warn{background:#fff1dc;color:var(--warn)}.tag.dan{background:#fde6e6;color:var(--dan)}
+.msg{padding:9px 12px;border-radius:7px;margin:10px 0;font-size:14px}.msg.err{background:#fde6e6;color:var(--dan)}.msg.ok{background:#e3f4e8;color:var(--ok)}.msg.info{background:#e8f0fe;color:#174ea6}
+pre{background:#101828;color:#d0d5dd;padding:12px;border-radius:8px;overflow:auto;max-height:260px;font-size:12.5px;white-space:pre-wrap}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.grow{flex:1}
+.login{max-width:380px;margin:12vh auto}
+.preview{width:120px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:#eee}
+.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 12px;z-index:20}
+.modal .card{width:min(640px,100%);margin:0}
+small{color:var(--mut)}
+.items-ed{border:1px solid var(--line);border-radius:8px;padding:8px;margin-top:4px}
+.it-row{display:grid;grid-template-columns:1fr 130px auto;gap:6px;margin-bottom:6px;align-items:center}
+.it-row .acts{white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div id="loginView" class="login hidden">
+  <div class="card">
+    <h2 style="margin-top:0">S90 Local Admin</h2>
+    <small>Enter the password shown in the terminal window.</small>
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" autofocus>
+    <div id="loginMsg"></div>
+    <p><button id="loginBtn" class="btn pri" style="width:100%">Sign in</button></p>
+  </div>
+</div>
+
+<div id="appView" class="hidden">
+  <header>
+    <h1>S90 Local Admin</h1>
+    <span id="gitInfo" class="tag"></span>
+    <button id="pullBtn" class="btn" title="Download newer changes from GitHub (useful when you also edit on another PC)">Sync from GitHub</button>
+    <button id="pubBtn" class="btn pri">Publish to GitHub</button>
+    <button id="logoutBtn" class="btn">Log out</button>
+  </header>
+  <main>
+    <div id="globalMsg"></div>
+    <div class="tabs">
+      <button class="tab on" data-tab="managed">My products</button>
+      <button class="tab" data-tab="static">Existing site products</button>
+      <button class="tab" data-tab="log">Publish log</button>
+    </div>
+
+    <section id="tab-managed">
+      <div class="card">
+        <div class="row"><strong class="grow" id="managedCount"></strong><button id="addBtn" class="btn pri">+ Add product</button></div>
+        <div style="overflow:auto"><table><thead><tr><th></th><th>SKU</th><th>Name</th><th>Category</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody id="managedRows"></tbody></table></div>
+        <p id="managedEmpty" class="hidden"><small>No products yet. Click “Add product”.</small></p>
+      </div>
+    </section>
+
+    <section id="tab-static" class="hidden">
+      <div class="card">
+        <div class="row"><input id="staticQ" type="text" class="grow" placeholder="Search by SKU or name…"><select id="staticCat" style="width:auto"><option value="">All categories</option></select></div>
+        <p><small id="staticInfo"></small></p>
+        <div style="overflow:auto"><table><thead><tr><th></th><th>SKU</th><th>Name</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody id="staticRows"></tbody></table></div>
+        <p><button id="moreBtn" class="btn hidden">Show more</button></p>
+      </div>
+    </section>
+
+    <section id="tab-log" class="hidden"><div class="card"><pre id="logBox">Nothing published in this session yet.</pre></div></section>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="card" id="modalBody"></div></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+var state={catalog:{products:[],overrides:{}},categories:[],staticProducts:[],git:null};
+var staticLimit=100;
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function imgUrl(p){return p?'/'+p.split('/').map(encodeURIComponent).join('/'):''}
+function api(method,path,body){
+  var opt={method:method,headers:{'X-S90-Admin':'1'},credentials:'same-origin'};
+  if(body!==undefined){opt.headers['Content-Type']='application/json';opt.body=JSON.stringify(body)}
+  return fetch(path,opt).then(function(r){return r.json().catch(function(){return {ok:false,error:'Bad server reply'}}).then(function(j){
+    if(!r.ok||j.ok===false){var e=new Error(j.error||j.message||('Error '+r.status));e.status=r.status;e.data=j;throw e}return j})});
+}
+function say(el,type,text){el.innerHTML=text?'<div class="msg '+type+'">'+esc(text)+'</div>':''}
+function toast(type,text){say($('globalMsg'),type,text);if(text)window.scrollTo({top:0,behavior:'smooth'})}
+function catLabel(v){var c=state.categories.find(function(x){return x.value===v});return c?c.label:(v||'')}
+function money(v){var n=Number(v);return isFinite(n)?'$'+n.toFixed(2):esc(v)}
+
+/* ---------- login ---------- */
+function showLogin(){$('appView').classList.add('hidden');$('loginView').classList.remove('hidden');$('pw').focus()}
+function doLogin(){
+  $('loginBtn').disabled=true;
+  api('POST','/api/login',{password:$('pw').value}).then(function(){$('pw').value='';say($('loginMsg'),'','');return boot()})
+  .catch(function(e){say($('loginMsg'),'err',e.message)}).then(function(){$('loginBtn').disabled=false});
+}
+$('loginBtn').onclick=doLogin;
+$('pw').onkeydown=function(e){if(e.key==='Enter')doLogin()};
+$('logoutBtn').onclick=function(){api('POST','/api/logout',{}).then(showLogin)};
+
+/* ---------- load ---------- */
+function boot(){
+  return api('GET','/api/state').then(function(s){
+    state=s;$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');render();
+  }).catch(function(e){if(e.status===401)showLogin();else toast('err',e.message)});
+}
+function render(){
+  var g=state.git||{};
+  $('gitInfo').textContent=g.ok?('Git: '+g.branch):'Git not ready';
+  $('gitInfo').className='tag '+(g.ok?'ok':'dan');$('gitInfo').title=g.ok?g.remote:(g.problem||'');
+  var sel=$('staticCat'),cur=sel.value;
+  sel.innerHTML='<option value="">All categories</option>'+state.categories.map(function(c){return '<option value="'+esc(c.value)+'">'+esc(c.label)+'</option>'}).join('');
+  sel.value=cur;
+  renderManaged();renderStatic();
+}
+function renderManaged(){
+  var ps=state.catalog.products||[];
+  $('managedCount').textContent=ps.length+' product'+(ps.length===1?'':'s')+' created in the dashboard';
+  $('managedEmpty').classList.toggle('hidden',ps.length>0);
+  $('managedRows').innerHTML=ps.map(function(p,i){
+    return '<tr><td><img src="'+esc(imgUrl(p.image))+'" alt=""></td><td><code>'+esc(p.sku)+'</code></td><td>'+esc(p.name)+'</td><td><small>'+esc(catLabel(p.category))+'</small></td><td>'+(p.items&&p.items.length?p.items.length+' sub-items':money(p.price))+'</td>'
+    +'<td>'+(p.visible===false?'<span class="tag warn">Hidden</span>':'<span class="tag ok">Visible</span>')+'</td>'
+    +'<td style="white-space:nowrap"><button class="btn sm" data-a="edit" data-i="'+i+'">Edit</button> <button class="btn sm" data-a="vis" data-i="'+i+'">'+(p.visible===false?'Show':'Hide')+'</button> <button class="btn sm dan" data-a="del" data-i="'+i+'">Delete</button></td></tr>';
+  }).join('');
+}
+function renderStatic(){
+  var q=$('staticQ').value.trim().toLowerCase(),cat=$('staticCat').value;
+  var ov=state.catalog.overrides||{};
+  var list=state.staticProducts.filter(function(p){
+    if(cat&&(p.folders||[]).indexOf(cat)<0)return false;
+    if(!q)return true;
+    return p.sku.toLowerCase().indexOf(q)>=0||p.name.toLowerCase().indexOf(q)>=0;
+  });
+  var shown=list.slice(0,staticLimit);
+  $('staticInfo').textContent=list.length+' match'+(list.length===1?'':'es')+' of '+state.staticProducts.length+' products on the original website. Changes here are saved as SKU-based overrides.';
+  $('moreBtn').classList.toggle('hidden',list.length<=staticLimit);
+  $('staticRows').innerHTML=shown.map(function(p){
+    var o=ov[p.sku],tags='';
+    if(o&&o.hidden)tags+='<span class="tag warn">Hidden</span> ';
+    if(o&&(o.name||o.price||o.image||o.category||o.items))tags+='<span class="tag">Edited</span>';
+    if(!tags)tags='<span class="tag ok">Original</span>';
+    return '<tr><td><img src="'+esc(imgUrl((o&&o.image)||p.image))+'" alt="" loading="lazy"></td><td><code>'+esc(p.sku)+'</code></td><td>'+esc((o&&o.name)||p.name)+'</td><td>'+esc(((o&&o.items)||p.items||[]).length?((o&&o.items)||p.items).length+' sub-items':(o&&o.price?money(o.price):p.price))+'</td><td>'+tags+'</td>'
+    +'<td style="white-space:nowrap"><button class="btn sm" data-a="oedit" data-s="'+esc(p.sku)+'">Edit</button> <button class="btn sm" data-a="ohide" data-s="'+esc(p.sku)+'">'+(o&&o.hidden?'Show':'Hide')+'</button>'+(o?' <button class="btn sm" data-a="oreset" data-s="'+esc(p.sku)+'">Reset</button>':'')+'</td></tr>';
+  }).join('');
+}
+$('staticQ').oninput=function(){staticLimit=100;renderStatic()};
+$('staticCat').onchange=function(){staticLimit=100;renderStatic()};
+$('moreBtn').onclick=function(){staticLimit+=200;renderStatic()};
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(function(t){t.onclick=function(){
+  document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===t)});
+  ['managed','static','log'].forEach(function(n){$('tab-'+n).classList.toggle('hidden',n!==t.dataset.tab)});
+}});
+
+/* ---------- modal form ---------- */
+function closeModal(){$('modal').classList.add('hidden');$('modalBody').innerHTML=''}
+function readFile(file){return new Promise(function(res,rej){
+  if(!file)return res(null);
+  if(!/^image\/(jpeg|png|webp|gif)$/.test(file.type))return rej(new Error('Only JPG, PNG, WEBP or GIF pictures are allowed.'));
+  if(file.size>10*1024*1024)return rej(new Error('Picture is larger than 10 MB. Compress it first.'));
+  var r=new FileReader();r.onload=function(){res(r.result)};r.onerror=function(){rej(new Error('Could not read the picture.'))};r.readAsDataURL(file)})}
+function catOptions(sel,withBlank){return (withBlank?'<option value="">(keep original)</option>':'<option value="" disabled '+(sel?'':'selected')+'>Choose a category…</option>')
+  +state.categories.map(function(c){return '<option value="'+esc(c.value)+'"'+(c.value===sel?' selected':'')+'>'+esc(c.label)+'</option>'}).join('')}
+
+
+/* ---------- sub-items editor ---------- */
+var edItems=[];
+function itemsEditorHtml(){return '<div class="items-ed"><div id="itRows"></div><div class="row"><button type="button" class="btn sm" id="itAdd">+ Add sub-item</button><small>Price can be a number (5 or 5.50) or text such as $1x.xx</small></div></div>'}
+function drawItems(){
+  $('itRows').innerHTML=edItems.length?edItems.map(function(it,i){
+    return '<div class="it-row"><input type="text" data-f="name" data-i="'+i+'" value="'+esc(it.name)+'" placeholder="Sub-item name"><input type="text" data-f="price" data-i="'+i+'" value="'+esc(it.price)+'" placeholder="Price"><span class="acts"><button type="button" class="btn sm" data-m="up" data-i="'+i+'">↑</button> <button type="button" class="btn sm" data-m="down" data-i="'+i+'">↓</button> <button type="button" class="btn sm dan" data-m="del" data-i="'+i+'">✕</button></span></div>';
+  }).join(''):'<small>No sub-items.</small>';
+}
+function bindItems(){
+  drawItems();
+  $('itAdd').onclick=function(){edItems.push({name:'',price:''});drawItems();var inp=document.querySelectorAll('#itRows input[data-f=name]');if(inp.length)inp[inp.length-1].focus()};
+  $('itRows').oninput=function(e){var t=e.target;if(t.dataset.f)edItems[+t.dataset.i][t.dataset.f]=t.value};
+  $('itRows').onclick=function(e){
+    var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i;
+    if(b.dataset.m==='del')edItems.splice(i,1);
+    else if(b.dataset.m==='up'&&i>0){var t=edItems[i];edItems[i]=edItems[i-1];edItems[i-1]=t}
+    else if(b.dataset.m==='down'&&i<edItems.length-1){var t2=edItems[i];edItems[i]=edItems[i+1];edItems[i+1]=t2}
+    drawItems();
+  };
+}
+function cleanEd(){return edItems.map(function(x){return {name:(x.name||'').trim(),price:(x.price||'').trim()}}).filter(function(x){return x.name||x.price})}
+
+function openProductForm(p){
+  var edit=!!p;p=p||{sku:'',name:'',category:'',price:'',image:'',visible:true};edItems=(p.items||[]).map(function(x){return {name:x.name,price:x.price}});
+  $('modalBody').innerHTML='<h3 style="margin-top:0">'+(edit?'Edit product':'Add product')+'</h3><div id="fMsg"></div>'
+  +'<label>Product name</label><input type="text" id="fName" value="'+esc(p.name)+'">'
+  +'<div class="grid"><div><label>SKU (unique)</label><input type="text" id="fSku" value="'+esc(p.sku)+'"></div><div><label>Price (USD) — leave empty if you use sub-items</label><input type="text" id="fPrice" inputmode="decimal" value="'+esc(p.price)+'" placeholder="5.00"></div></div>'
+  +'<label>Category</label><select id="fCat">'+catOptions(p.category,false)+'</select>'
+  +'<label>Sub-items (optional — each with its own price; when present they replace the single price on the website)</label>'+itemsEditorHtml()
+  +'<label>Picture (JPG, PNG, WEBP, GIF — under 10 MB)</label><div class="row"><img id="fPrev" class="preview" '+(p.image?'src="'+esc(imgUrl(p.image))+'"':'style="visibility:hidden"')+' alt=""><input type="file" id="fFile" accept="image/jpeg,image/png,image/webp,image/gif"></div>'
+  +'<label><input type="checkbox" id="fVis" '+(p.visible!==false?'checked':'')+'> Visible on the public website</label>'
+  +'<div class="row" style="margin-top:14px"><button class="btn pri" id="fSave">Save</button><button class="btn" id="fCancel">Cancel</button></div>';
+  $('modal').classList.remove('hidden');
+  bindItems();
+  $('fFile').onchange=function(){var f=this.files[0];if(f){$('fPrev').src=URL.createObjectURL(f);$('fPrev').style.visibility='visible'}};
+  $('fCancel').onclick=closeModal;
+  $('fSave').onclick=function(){
+    var btn=this;btn.disabled=true;
+    readFile($('fFile').files[0]).then(function(data){
+      return api('POST','/api/product',{originalSku:edit?p.sku:'',sku:$('fSku').value,name:$('fName').value,category:$('fCat').value,price:$('fPrice').value,items:cleanEd(),visible:$('fVis').checked,imageData:data||undefined});
+    }).then(function(){closeModal();toast('ok','Saved. Remember to click “Publish to GitHub” when you are done.');return boot()})
+    .catch(function(e){say($('fMsg'),'err',e.message);btn.disabled=false});
+  };
+}
+function openOverrideForm(sku){
+  var sp=state.staticProducts.find(function(x){return x.sku===sku}),o=(state.catalog.overrides||{})[sku]||{};
+  var origItems=(sp.items||[]).map(function(x){return {name:x.name,price:x.price}});
+  var curItems=(o.items||sp.items||[]).map(function(x){return {name:x.name,price:x.price}});
+  edItems=curItems.map(function(x){return {name:x.name,price:x.price}});
+  $('modalBody').innerHTML='<h3 style="margin-top:0">Edit existing product <code>'+esc(sku)+'</code></h3><div id="fMsg"></div>'
+  +'<small>Leave a field empty to keep the original value. Original: '+esc(sp.name)+' — '+esc(sp.price)+'</small>'
+  +'<label>Name</label><input type="text" id="oName" value="'+esc(o.name||'')+'" placeholder="'+esc(sp.name)+'">'
+  +'<div class="grid"><div><label>Price (USD)</label><input type="text" id="oPrice" value="'+esc(o.price||'')+'" placeholder="'+esc(sp.price)+'"></div>'
+  +'<div><label>Category</label><select id="oCat">'+catOptions(o.category||'',true)+'</select></div></div>'
+  +'<label>Sub-items'+(o.items?' (edited)':'')+'</label>'+itemsEditorHtml()+'<small>'+(origItems.length||o.items?'Removing every row restores the original list.':'This product has no sub-items. Add rows to turn its single price into a list.')+'</small>'
+  +'<label>Replacement picture</label><div class="row"><img id="fPrev" class="preview" src="'+esc(imgUrl(o.image||sp.image))+'" alt=""><input type="file" id="fFile" accept="image/jpeg,image/png,image/webp,image/gif"></div>'
+  +'<div class="row" style="margin-top:14px"><button class="btn pri" id="fSave">Save</button><button class="btn" id="fCancel">Cancel</button></div>';
+  $('modal').classList.remove('hidden');
+  bindItems();
+  $('fFile').onchange=function(){var f=this.files[0];if(f)$('fPrev').src=URL.createObjectURL(f)};
+  $('fCancel').onclick=closeModal;
+  $('fSave').onclick=function(){
+    var btn=this;btn.disabled=true;
+    readFile($('fFile').files[0]).then(function(data){
+      var body={sku:sku,name:$('oName').value,price:$('oPrice').value,category:$('oCat').value,imageData:data||undefined};
+      var now=cleanEd();
+      if(JSON.stringify(now)!==JSON.stringify(curItems))body.items=now;
+      return api('POST','/api/override',body);
+    }).then(function(){closeModal();toast('ok','Saved override for '+sku+'.');return boot()})
+    .catch(function(e){say($('fMsg'),'err',e.message);btn.disabled=false});
+  };
+}
+$('addBtn').onclick=function(){openProductForm(null)};
+$('modal').onmousedown=function(e){if(e.target===this)closeModal()};
+
+/* ---------- table actions ---------- */
+function act(p){return p.then(boot).catch(function(e){toast('err',e.message)})}
+$('managedRows').onclick=function(e){
+  var b=e.target.closest('button');if(!b)return;var p=state.catalog.products[+b.dataset.i];if(!p)return;
+  if(b.dataset.a==='edit')openProductForm(p);
+  else if(b.dataset.a==='vis')act(api('POST','/api/product/visibility',{sku:p.sku,visible:p.visible===false}));
+  else if(b.dataset.a==='del'&&confirm('Delete "'+p.name+'" ('+p.sku+') permanently from catalog.json?'))act(api('POST','/api/product/delete',{sku:p.sku}));
+};
+$('staticRows').onclick=function(e){
+  var b=e.target.closest('button');if(!b)return;var sku=b.dataset.s,o=(state.catalog.overrides||{})[sku]||{};
+  if(b.dataset.a==='oedit')openOverrideForm(sku);
+  else if(b.dataset.a==='ohide')act(api('POST','/api/override',{sku:sku,hidden:!o.hidden}));
+  else if(b.dataset.a==='oreset'&&confirm('Remove all dashboard changes for '+sku+' and restore the original product?'))act(api('POST','/api/override',{sku:sku,clear:true}));
+};
+
+/* ---------- publish / pull ---------- */
+function runGit(kind,btn,label){
+  btn.disabled=true;var old=btn.textContent;btn.textContent=label;
+  api('POST','/api/'+kind,{}).then(function(r){return r},function(e){return e.data||{ok:false,message:e.message,log:[]}}).then(function(r){
+    $('logBox').textContent=(r.log||[]).join('\n\n')||(r.message||'');
+    toast(r.ok?'ok':'err',r.message||(r.ok?'Done.':'Failed.'));
+    if(!r.ok)document.querySelector('[data-tab=log]').click();
+    return boot();
+  }).then(function(){btn.disabled=false;btn.textContent=old});
+}
+$('pubBtn').onclick=function(){if(confirm('Publish all current changes to GitHub? This also triggers a Vercel deployment.'))runGit('publish',$('pubBtn'),'Publishing…')};
+$('pullBtn').onclick=function(){runGit('pull',$('pullBtn'),'Syncing…')};
+
+api('GET','/api/session').then(function(s){if(s.loggedIn)boot();else showLogin()}).catch(showLogin);
+})();
+</script>
+</body>
+</html>

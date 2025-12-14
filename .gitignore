@@ -1,0 +1,3 @@
+local-admin/.admin-auth.json
+local-admin/backups/
+catalog.json.tmp-*

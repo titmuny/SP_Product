@@ -154,6 +154,10 @@
   margin: 0;
 }
 
+.modal-content:has(.quick-view-title) > .modal-header {
+  border-bottom: 0;
+}
+
 .quick-view-title {
   font-family: Khmer OS Battambang, Arial, sans-serif;
   color: blue;
@@ -321,20 +325,38 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #0d6efd;
-  border-color: #0d6efd;
+  min-height: 48px;
+  padding: 0.65rem 1.1rem;
+  border: 0;
+  border-radius: 14px;
+  background: #198754;
   color: #fff;
 }
 
 .quick-view-order-btn:hover,
 .quick-view-order-btn:focus {
-  background: #0b5ed7;
-  border-color: #0b5ed7;
+  background: #157347;
   color: #fff;
 }
 
 .quick-view-order-btn i {
   font-size: 1rem;
+}
+
+#quickViewAddCartBtn {
+  min-width: 150px;
+  min-height: 48px;
+  padding: 0.65rem 1.1rem;
+  border: 0;
+  border-radius: 14px;
+  background: #0d6efd;
+  color: #fff;
+}
+
+#quickViewAddCartBtn:hover,
+#quickViewAddCartBtn:focus {
+  background: #0b5ed7;
+  color: #fff;
 }
 
 .card.box:not(.hero-banner-card) {
@@ -365,16 +387,23 @@
   }
 
   .modal-dialog.modal-lg {
-    margin: 0.5rem;
+    width: min(100% - 1rem, 360px);
+    max-width: 360px;
+    margin: 0.5rem auto;
   }
 
   .modal-content {
     border-radius: 18px;
   }
 
-  .quick-view-image-wrap {
-    min-height: 300px;
-  }
+  #productQuickViewModal .quick-view-image-wrap { display: flex !important; min-height: 180px; max-height: 180px; padding: 0.5rem 1rem !important; }
+  #productQuickViewModal .quick-view-image { width: 100%; height: 100%; object-fit: contain; }
+  #productQuickViewModal .modal-header { padding: 0.75rem 1rem 0; }
+  #productQuickViewModal .quick-view-title { font-size: 1.15rem; }
+  #productQuickViewModal .modal-header .btn-close { display: none; }
+  #productQuickViewModal .modal-body .col-md-7 { width: 100%; padding: 0.4rem 1rem 0.75rem !important; }
+  #productQuickViewModal .modal-footer { flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: 0.35rem; padding: 0.65rem 0.8rem; }
+  #productQuickViewModal .modal-footer > .d-flex { display: contents !important; }
 
   .quick-view-title {
     font-size: 1.45rem;
@@ -429,22 +458,15 @@
     border-radius: 12px;
   }
 
-  .modal-footer {
-    gap: 0.75rem;
-    flex-direction: column-reverse;
-    align-items: stretch;
-  }
-
-  .modal-footer .btn,
-  .quick-view-order-btn {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .quick-view-order-btn {
-    min-height: 48px;
-    font-size: 1rem;
-  }
+  #productQuickViewModal .quick-view-order-btn,
+  #productQuickViewModal #quickViewAddCartBtn { width: auto; min-width: 0; min-height: 38px; flex: 1 1 0; padding: 0.45rem 0.5rem; border-radius: 11px; font-size: 0.78rem; white-space: nowrap; }
+  #productQuickViewModal .quick-view-close-btn { display: inline-flex; width: 38px; min-width: 38px; height: 38px; align-items: center; justify-content: center; padding: 0; border: 0; border-radius: 11px; background: #dc3545; color: #fff; }
+  #productQuickViewModal .quick-view-order-tools { margin-top: 0.7rem; gap: 0.55rem; }
+  #productQuickViewModal .quick-view-summary { padding: 0.6rem 0.7rem; border-radius: 10px; }
+  #productQuickViewModal .quick-view-summary-title,
+  #productQuickViewModal .quick-view-summary-row { font-size: 0.78rem; }
+  #productQuickViewModal .quick-view-qty-btn { width: 30px; height: 30px; }
+  #productQuickViewModal .quick-view-qty-value { min-width: 34px; font-size: 0.85rem; }
 }
 img {
   max-width: 100%;
@@ -712,3 +734,117 @@ body {
 
 .scroll-btn.left { left: 10px; }
 .scroll-btn.right { right: 10px; }
+
+
+/* S90 floating controls: fixed, consistent right-edge stack */
+.s90-floating-control { position: fixed; right: 20px; z-index: 99; display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 50px; height: 50px; margin: 0; border-radius: 50%; text-decoration: none; }
+.s90-home-floating-button { bottom: 250px; background: #087bff; }
+.s90-facebook-floating-button { bottom: 190px; background: linear-gradient(180deg, #2d88ff 0%, #1877f2 100%); color: #fff; }
+.s90-facebook-floating-button-lower { bottom: 120px; background: linear-gradient(180deg, #2d88ff 0%, #1877f2 100%); color: #fff; }
+.s90-telegram-floating-button { bottom: 130px; background: linear-gradient(135deg, #35b6ef 0%, #229ed9 100%); color: #fff; }
+.s90-telegram-floating-button-lower { bottom: 60px; background: linear-gradient(135deg, #35b6ef 0%, #229ed9 100%); color: #fff; }
+.s90-floating-control svg { width: 20px; height: 22px; }
+.s90-floating-control img { display: block; width: 30px; height: 30px; object-fit: contain; }
+.s90-telegram-floating-button .tg-floating-icon { color: #fff; font-size: 22px; line-height: 1; }
+.s90-telegram-floating-button .tg-icon-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.s90-floating-scroll { position: fixed; right: 20px; z-index: 99; display: none; align-items: center; justify-content: center; box-sizing: border-box; width: 50px; height: 50px; padding: 0; border: 0; border-radius: 50%; color: #fff; font-size: 24px; cursor: pointer; }
+.s90-floating-scroll-top { bottom: 10px; background: #087bff; }
+.s90-floating-scroll-bottom { bottom: 70px; background: #c74444; }
+.s90-cart-fab { position: fixed; right: 20px; bottom: 310px; z-index: 99; width: 50px; height: 50px; border: 0; border-radius: 50%; background: linear-gradient(135deg,#ff9f1a,#f57c00); color: #fff; font-size: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.s90-cart-fab.bump { animation: s90bump .5s; }
+.s90-cart-badge { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: #d32f2f; color: #fff; font: 700 12px/20px Arial,sans-serif; text-align: center; }
+@keyframes s90bump { 30% { transform: scale(1.25); } 60% { transform: scale(.92); } }
+.s90-fluid-banner { width: 100%; height: auto; }
+.s90-footer-heading { font-family: Khmer OS Battambang, poppins; }
+.s90-footer-icon { width: 30px; height: 30px; }
+.s90-footer-text { font-family: 'Khmer OS Battambang'; }
+.s90-main-navbar { background-color: #00c3ff; transition: background-color 0.3s ease; }
+.s90-navbar-content { font-family: Arial, 'Khmer OS Battambang'; font-size: 1.1rem; }
+.s90-navbar-content-moul { font-family: Arial, 'Moul'; font-size: 1.1rem; }
+.s90-welcome-header { padding-top: 1rem; padding-bottom: 1rem; }
+.s90-welcome-header h1 { margin-bottom: .5rem; font-size: clamp(2rem, 3.2vw, 3rem); }
+.s90-welcome-header p { margin-bottom: 0; font-size: 1.1rem; }
+.s90-navbar-logo { height: 60px; }
+.s90-page-body { scroll-behavior: smooth; font-family: Poppins, 'Khmer OS Battambang'; }
+.s90-page-footer { background: linear-gradient(135deg, #0f172a, #1e293b); font-family: 'Inter', sans-serif; }
+.s90-product-image { border-radius: 0; max-height: fit-content; margin: 0 auto; }
+.s90-product-price { font-size: 1.3rem; font-family: inter; color: red; }
+.s90-sidebar-links { font-family: poppins, Khmer OS Battambang; }
+.s90-sidebar-panel .s90-sidebar-links { width: 100%; margin: 0; padding: 0; }
+.s90-sidebar-links .nav-item + .nav-item { border-top: 1px solid #e8e8e8; }
+.s90-sidebar-links .nav-link { border-radius: 0; }
+.s90-sidebar-links .category-filter { display: flex; min-height: 42px; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px; color: #222 !important; font-family: Poppins, 'Khmer OS Battambang', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.45; }
+.s90-sidebar-links .category-filter::after { content: ''; width: 7px; height: 7px; flex: 0 0 7px; border-top: 1.5px solid #777; border-right: 1.5px solid #777; transform: rotate(45deg); margin-right: 3px; }
+.s90-sidebar-links .category-filter.active { border-radius: 0; background: #126cf4; color: #fff !important; }
+.s90-sidebar-links .category-filter.active::after { border-color: #fff; }
+.s90-sidebar-panel { background-color: #fff; }
+.s90-sidebar-panel .offcanvas-body { margin: 0 !important; padding: 0 !important; }
+.s90-sidebar-panel .offcanvas-header { min-height: 48px; padding: 10px 16px; border-bottom: 1px solid #d6d6d6 !important; }
+@media (max-width: 991.98px) { .s90-sidebar-panel { --bs-offcanvas-width: 100vw !important; width: 100vw !important; max-width: 100vw !important; } }
+.s90-sidebar-title { display: flex; align-items: center; gap: 7px; margin: 0; color: #000 !important; font-family: poppins; line-height: 1.2; }
+.s90-sidebar-title > i { display: block; flex: 0 0 auto; line-height: 1; }
+.s90-square-card { border-radius: 0; }
+.s90-text-center { text-align: center; }
+@media (max-width: 991.98px) {
+  .s90-floating-control, .s90-floating-scroll { right: max(12px, env(safe-area-inset-right)); width: 40px; height: 40px; }
+  .s90-home-floating-button { bottom: 176px; }
+  .s90-facebook-floating-button { bottom: 124px; }
+  .s90-telegram-floating-button { bottom: 72px; }
+  .s90-floating-scroll-top, .s90-floating-scroll-bottom { bottom: 16px; }
+  .s90-cart-fab { right: max(12px, env(safe-area-inset-right)); bottom: 176px; width: 40px; height: 40px; font-size: 20px; }
+  body:has(#homeBtn) .s90-cart-fab { bottom: 228px; }
+}
+
+@media (max-width: 767.98px) {
+  .category-bar .scroll-btn { display: none !important; }
+  #categoryScroll ~ .scroll-btn,
+  .no-filter .position-relative > .scroll-btn { display: none !important; }
+}
+
+/* Desktop floating controls aligned to the reference stack. */
+@media (min-width: 992px) {
+  .s90-floating-control, .s90-floating-scroll, .s90-cart-fab { right: 20px; width: 50px; height: 50px; }
+  .s90-cart-fab { bottom: 230px; }
+  .s90-facebook-floating-button { bottom: 160px; }
+  .s90-telegram-floating-button { bottom: 90px; }
+  .s90-floating-scroll-top, .s90-floating-scroll-bottom { bottom: 20px; }
+}
+
+/* Compact Samsung-style mobile navbar */
+.s90-mobile-header { position: relative; height: 44px; min-height: 44px; justify-content: space-between; padding: 0 4px; }
+.s90-mobile-wordmark { display: inline-flex; flex: 0 0 auto; align-items: center; text-decoration: none; }
+.s90-mobile-logo { display: block; width: 74px; height: 34px; object-fit: contain; }
+.s90-mobile-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; margin-right: 20px; }
+.s90-mobile-icon { display: inline-flex; width: 28px; height: 34px; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; color: #262626; line-height: 1; text-decoration: none; cursor: pointer; }
+.s90-nav-svg { display: block; width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+.s90-nav-menu-svg { width: 28px; height: 28px; stroke-width: 1.7; }
+.s90-mobile-icon:focus-visible, .s90-mobile-search-submit:focus-visible { outline: 2px solid #1769aa; outline-offset: 2px; }
+.s90-mobile-cart { position: relative; }
+.s90-mobile-cart .s90-cart-badge { top: 0; right: -8px; min-width: 15px; height: 15px; padding: 0 3px; font: 700 10px/15px Arial,sans-serif; }
+.s90-mobile-search-panel { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 1081; display: flex; align-items: center; gap: 8px; box-sizing: border-box; height: 52px; min-height: 0; padding: 0 max(24px, calc((100vw - 560px) / 2)); border: 0; border-radius: 0; background: #fff; box-shadow: inset 0 3px 5px -4px rgba(0,0,0,.45); }
+.s90-mobile-search-panel[hidden] { display: none; }
+.s90-main-navbar:has(.s90-mobile-search-panel:not([hidden])) { background: #fff !important; }
+.s90-main-navbar:has(.s90-mobile-search-panel:not([hidden])) > .s90-navbar-content { padding-top: 0 !important; padding-bottom: 0 !important; }
+.s90-mobile-header:has(.s90-mobile-search-panel:not([hidden])) > .s90-mobile-wordmark,
+.s90-mobile-header:has(.s90-mobile-search-panel:not([hidden])) > .s90-mobile-actions { visibility: hidden; }
+.s90-mobile-search-panel .form-control { display: block; flex: 1 1 auto; box-sizing: border-box; min-width: 0; height: 32px; margin: 0; padding: 0 !important; border: 0 !important; border-bottom: 0 !important; border-radius: 0 !important; outline: 0; box-shadow: none !important; color: #333; font: 16px/32px Arial,sans-serif; text-align: left; appearance: none; -webkit-appearance: none; }
+.s90-mobile-search-panel .form-control:focus { border-bottom: 0 !important; }
+.s90-mobile-search-panel .form-control::placeholder { color: #777; opacity: 1; }
+.s90-mobile-search-panel .form-control::-webkit-search-cancel-button { display: none; }
+.s90-mobile-search-icon { display: inline-flex; width: 32px; height: 32px; flex: 0 0 32px; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; color: #777; cursor: pointer; }
+.s90-mobile-search-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
+.s90-mobile-search-submit { display: inline-flex; width: 32px; height: 32px; flex: 0 0 32px; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; color: #444; }
+.s90-mobile-search-submit svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.s90-mobile-nav-panel { --bs-offcanvas-width: 100vw; width: 100vw; max-width: 100vw; background-color: #fff; color: #222; }
+.s90-mobile-nav-panel .offcanvas-header { min-height: 48px; padding: 10px 16px; border-color: #e8e8e8 !important; }
+.s90-mobile-nav-panel .offcanvas-title { display: flex; align-items: center; gap: 7px; margin: 0; color: #333; font-family: poppins; font-size: 1.25rem; font-weight: 600; line-height: 1.2; letter-spacing: 0; }
+.s90-mobile-nav-panel .offcanvas-title > i { display: block; flex: 0 0 auto; line-height: 1; }
+.s90-mobile-nav-panel .offcanvas-body { max-height: none; padding: 8px 16px; }
+.s90-mobile-nav-links .nav-link { padding: 10px 2px; border-bottom: 1px solid #ececec; border-radius: 0; color: #333; font: 400 .9rem/1.5 Arial, sans-serif; text-decoration: none; }
+.s90-mobile-nav-links .nav-link:hover, .s90-mobile-nav-links .nav-link:focus { color: #222; background: #f7f9fc; }
+@media (max-width: 991.98px) {
+  .s90-main-navbar { background: #00c3ff; }
+  .s90-mobile-header { font-family: Arial, sans-serif; }
+  .s90-main-navbar .container-fluid { padding-right: 14px; padding-left: 14px; }
+}
+

@@ -1,0 +1,280 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- Shared navigation; included by home.html and index.html -->
+<!-- Delay analytics to cut non-essential requests on quick bounces -->
+<div id="topBanner">
+    <img src="Banner.webp" loading="eager" fetchpriority="high" decoding="async" class="s90-fluid-banner">
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm s90-main-navbar">
+    <div class="container-fluid s90-navbar-content">
+        <div class="s90-mobile-header d-flex d-lg-none align-items-center w-100">
+            <div class="s90-mobile-actions">
+                <button class="s90-mobile-icon" type="button" data-s90-search-toggle aria-label="Search products" aria-expanded="false" aria-controls="mobileSearchPanel"><i class="bi bi-search"></i></button>
+                <button class="s90-mobile-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Open menu"><i class="bi bi-list"></i></button>
+            </div>
+            <form class="s90-mobile-search-panel" id="mobileSearchPanel" role="search" hidden>
+                <input class="form-control" type="search" placeholder="Search products" aria-label="Search products" id="navbarSearchMobile">
+                <button class="s90-mobile-search-submit" type="submit" aria-label="Submit search"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+        <a class="navbar-brand d-none d-lg-block" href="#"><img src="Blue.png" alt="S90 Logo" class="s90-navbar-logo"></a>
+        <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link active text-black nav-hover" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-black nav-hover" href="#">Features</a></li>
+                <li class="nav-item"><a class="nav-link text-black nav-hover" href="#" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">Categories</a></li>
+            </ul>
+            <form class="d-flex d-none d-lg-flex me-3 align-items-center" role="search">
+                <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search" placeholder="Search products"
+                    aria-label="Search" id="navbarSearchDesktop">
+                <button class="btn btn-warning rounded-pill px-4 fw-semibold shadow-sm search-hover" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Shared page header -->
+    <!-- Sidebar Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start s90-sidebar-panel" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarLabel"
+       >
+        <div class="offcanvas-header border-bottom border-light">
+            <h5 class="offcanvas-title text-white fw-semibold s90-sidebar-title" id="sidebarLabel">  <i class="bi bi-card-list"></i>
+                Categories</h5>
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+
+    <div class="offcanvas-body m-1 px-3 overflow-auto">
+        <ul class="nav flex-column gap-1 sidebar-links s90-sidebar-links">
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="All">All</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ADA">ផ្លែតំណ-Connector</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="KEY">សោរ-Key</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="Laser Distance Meter-LSDT">ឡាស៊ែរ-Laser</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="Motor-DLMT">ម៉ូទ័រ-Motor</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="Solar-Solar">សូឡា-Solar</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="Survay-SVY">សេវេ-Laser Level</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="wall&roof-WR">គ្រឿងដំបូល-Roof</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="Welding Magnet Support-WDMN">គ្រឿងផ្សារដែក-Welding</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ក្តារ-KDAR">ក្តារ-Board</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងការ៉ូ-TLSC">គ្រឿងការ៉ូ-Tile support tools</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងជ័រ-PLAS">គ្រឿងជ័រ-Plastic</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងឈើ-WDST">គ្រឿងឈើ-Wood</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងទឹក-WSP">គ្រឿងទឹក-Water</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងបន្លាស់-TMOR">គ្រឿងបន្លាស់-Battery</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងភ្លើង-ELT">គ្រឿងភ្លើង-Electric</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="គ្រឿងសំអាត-CLEAN">គ្រឿងសំអាត-Clean</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ឆុត-SET">ឆុត-Set</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ជើងទ្រ រឹត-STSP">ជើងទ្រ រឹត-Stand</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ដែក-Iron">ដែក-Iron</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ដែក-MTSP">ដែក-Metal</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ថ្នាំ-PAN">ថ្នាំ-Paint</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ថ្ម បេតុង-CCSP">ថ្ម បេតុង-Concrete</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ទុយោ-TUBE">ទុយោ-Pipe</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ទុយោរទឹកស្អាត-HDPE">ទុយោរទឹកស្អាត-Polyethylene</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="បន្ទាត់-RLSP">បន្ទាត់-Ruler</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ផ្សេងៗ-OTH">ផ្សេងៗ-Other</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="វីស-វីស">វីស-Screw</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ស្កុត&កាវ-SCOT">ស្កុត&កាវ-Tape</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="អគ្គីភ័យ-fire">អគ្គីភ័យ-Fire</a></li>
+            <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="អំពូល-LIGHT">អំពូល-Light</a></li>
+        </ul>
+    </div>
+    </div>
+
+
+    </ul>
+    </div>
+    </div>
+
+<!-- Sticky Category Bar -->
+<div class="container-fluid category-bar">
+  <div class="container position-relative">
+
+    <!-- Left Button -->
+    <button class="scroll-btn left btn btn-light rounded-circle shadow-sm position-absolute top-50 start-0 translate-middle-y">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+
+    <!-- Scrollable Buttons -->
+    <div class="d-flex overflow-auto no-scrollbar px-5 s90-page-body" id="categoryButtons" >
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0 active" data-category="All">All</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="New Arrivals">ទំនិញទើបមកដល់ថ្មី-New Arrivals</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Best Sellers">ទំនិញលក់ដាច់បំផុត-Best Sellers</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ផ្លែតំណ-ADA">ផ្លែតំណ-Connector</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="KEY-KEY">សោរ-Key</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Laser Distance Meter-LSDT">ឡាស៊ែរ-Laser</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Motor-DLMT">ម៉ូទ័រ-Motor</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Solar-Solar">សូឡា-Solar</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Survay-SVY">សេវេ-Laser Level</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="wall&roof-WR">គ្រឿងដំបូល-Roof</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Welding Magnet Support-WDMN">គ្រឿងផ្សារដែក-Welding</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ក្តារ-KDAR">ក្តារ-Board</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងការ៉ូ-TLSC">គ្រឿងការ៉ូ-Tile support tools</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងជ័រ-PLAS">គ្រឿងជ័រ-Plastic</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងឈើ-WDST">គ្រឿងឈើ-Wood</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងទឹក-WSP">គ្រឿងទឹក-Water</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងបន្លាស់-TMOR">គ្រឿងបន្លាស់-Battery</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងភ្លើង-ELT">គ្រឿងភ្លើង-Electric</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងសំអាត-CLEAN">គ្រឿងសំអាត-Clean</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ឆុត-SET">ឆុត-Set</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ជើងទ្រ រឹត-STSP">ជើងទ្រ រឹត-Stand</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ដែក-Iron">ដែក-Iron</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ដែក-MTSP">ដែក-Metal</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ថ្នាំ-PAN">ថ្នាំ-Paint</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ថ្ម បេតុង-CCSP">ថ្ម បេតុង-Concrete</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ទុយោ-TUBE">ទុយោ-Pipe</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ទុយោរទឹកស្អាត-HDPE">ទុយោរទឹកស្អាត-Polyethylene</button>    
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="បន្ទាត់-RLSP">បន្ទាត់-Ruler</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ផ្សេងៗ-OTH">ផ្សេងៗ-Other</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="វីស-វីស">វីស-Screw</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ស្កុត&កាវ-SCOT">ស្កុត&កាវ-Tape</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="អគ្គីភ័យ-fire">អគ្គីភ័យ-Fire</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="អំពូល-LIGHT">អំពូល-Light</button>
+    </div>
+
+    <!-- Right Button -->
+    <button class="scroll-btn right btn btn-light rounded-circle shadow-sm position-absolute top-50 end-0 translate-middle-y">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+
+  </div>
+</div>
+
+    <div id="carouselExampleIndicators" class="carousel slide img-fluid" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
+                aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"
+                aria-label="Slide 8"></button>
+    
+        </div>
+    
+        <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+                <img src="slide1.webp" class="carousel-img d-block mx-auto" alt="Slide 1" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide2.webp" class="carousel-img d-block mx-auto" alt="Slide 2" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide3.webp" class="carousel-img d-block mx-auto" alt="Slide 3" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide4.webp" class="carousel-img d-block mx-auto" alt="Slide 4" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide5.webp" class="carousel-img d-block mx-auto" alt="Slide 5" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide6.webp" class="carousel-img d-block mx-auto" alt="Slide 6" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide7.webp" class="carousel-img d-block mx-auto" alt="Slide 7" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+            <div class="carousel-item">
+                <img src="slide8.webp" class="carousel-img d-block mx-auto" alt="Slide 8" loading="lazy" fetchpriority="low" decoding="async">
+            </div>
+        </div>
+    
+        <!-- Navigation arrows -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    
+        <!-- Auto-slide script -->
+        </div>
+    
+        <!-- Shared footer -->
+    <footer class="text-light s90-page-footer"
+       >
+        <div class="container py-5">
+    
+            <div class="row text-center text-md-start g-4">
+    
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3 s90-footer-heading">
+                        <i class="bi bi-geo-alt-fill text-warning"></i> ទីតាំង
+                    </h5>
+                    <p class="mb-2 s90-footer-text">
+                        <i class="bi bi-geo-alt-fill text-info"></i>
+                        ទីតាំងទី1: ផ្ទះ111, ផ្លូវ122, សង្កាត់ទឹកល្អក់ទី1, ខណ្ឌទួលគោក, ក្រោយឈាងខាងកើតពេទ្យកុមារជាតិ100ម៉ែត្រ,
+                        ភ្នំពេញ<br>
+                        <i class="bi bi-map text-primary"></i>
+                        <a href="https://maps.app.goo.gl/uhxTuiReJewNuBXq6"
+                            class="text-decoration-none text-info">មើលទីតាំងទី1</a>
+                    </p>
+    
+                    <p class="s90-footer-text">
+                        <i class="bi bi-geo-alt-fill text-info"></i>
+                        ទីតាំងទី2: ផ្លូវមហាវិថីអង្គរ ហួសក្រសួងដែនដី 200ម៉ែត្រ ជាប់ការ៉ាស់សាំង PTT សង្កាត់ស្វាយប៉ាក
+                        រាជធានីភ្នំពេញ<br>
+                        <i class="bi bi-map text-primary"></i>
+                        <a href="https://maps.app.goo.gl/UmzzsM3j3DiY2CCz8"
+                            class="text-decoration-none text-info">មើលទីតាំងទី2</a>
+                    </p>
+                </div>
+    
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-telephone-fill text-warning"></i> Contact
+                    </h5>
+                    <p class="mb-2">
+                        <i class="bi bi-telegram text-info"></i>
+                        <strong>Telegram:</strong> 099288993 / 077955822
+                    </p>
+                    <p class="mb-2">
+                        <i class="bi bi-telephone text-success"></i>
+                        <strong>Smart:</strong> 010288993 / 081955822
+                    </p>
+                    <p class="mb-3">
+                        <i class="bi bi-telephone text-danger"></i>
+                        <strong>Metfone:</strong> 0312288993 / 067955822
+                    </p>
+    
+                    <div class="s90-footer-text">
+                        <a href="https://www.facebook.com/share/17WEzkFb4s/?mibextid=wwXIfr"
+                            class="text-decoration-none text-light d-block mb-2">
+                            <i class="bi bi-facebook fs-5 text-primary text-info"></i> S90 ស៊ុយកៅផ្គត់ផ្គង់គ្រឿងសំណង់
+                        </a>
+                        <a href="https://www.facebook.com/share/1BDdVZ1YMY/?mibextid=wwXIfr"
+                            class="text-decoration-none text-light d-block">
+                            <i class="bi bi-facebook fs-5 text-primary text-info"></i> SP លក់គ្រឿងបរិក្ខារសំណង់
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <hr class="border-secondary my-4">
+    
+            <div class="text-center small text-secondary">
+                <p class="mb-0">© 2025 <span class="text-light fw-semibold">S90</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js" defer></script>

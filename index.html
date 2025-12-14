@@ -37,7 +37,7 @@
     <link rel="icon" href="SP_Stroke.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-</head>
+    </head>
 
 <body>
 
@@ -47,77 +47,52 @@
     <img src="Banner.jpg" style="width: 100%; height: auto;" loading="eager" fetchpriority="high" decoding="async">
 </div>
 
-<!-- Navbar --> 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm"
-    style="background-color: #00c3ff; transition: background-color 0.3s ease;">
-    <div class="container-fluid" style="font-family: Arial, 'Khmer OS Battambang'; font-size: 1.1rem;">    
-
-        <!-- Mobile: Toggler + Search -->
-        <div class="d-flex d-lg-none align-items-center w-100 gap-2 px-2">
-            <!-- Toggler -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <!-- Mobile Search -->
-            <form class="d-flex flex-grow-1 align-items-center" role="search" onsubmit="return handleSearch(event);">
-                <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search" placeholder="Search products"
-                    aria-label="Search" id="navbarSearchMobile">
-                <button class="btn btn-warning rounded-pill px-3 py-2 fw-semibold shadow-sm" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </form>
-        </div>
-
-        <!-- Logo (desktop only) -->
-        <a class="navbar-brand d-none d-lg-block" href="#">
-            <img src="Blue.png" alt="S90 Logo" style="height: 60px;">
-        </a>
-
-        <!-- Collapsible Navbar -->
-        <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-        
-            <!-- Left nav links -->
-            <ul class="navbar-nav align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link active text-black nav-hover" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black nav-hover" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black nav-hover" href="#" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
-                        aria-controls="sidebarMenu">Categories</a>
-                </li>
-            </ul>
-        
-            <!-- Desktop search -->
-            <form class="d-flex d-none d-lg-flex me-3 align-items-center" role="search" onsubmit="return handleSearch(event);">
-                <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search" placeholder="Search products"
-                    aria-label="Search" id="navbarSearchDesktop">
-                <button class="btn btn-warning rounded-pill px-4 fw-semibold shadow-sm search-hover" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </form>
-        
-        </div>
-
+<!-- Compact S90-style responsive navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm s90-main-navbar">
+  <div class="container-fluid s90-navbar-content">
+    <div class="s90-mobile-header d-flex d-lg-none align-items-center w-100">
+      <a class="s90-mobile-wordmark" href="home.html" aria-label="SP home"><img src="SP_Stroke.png" alt="SP" class="s90-mobile-logo"></a>
+      <div class="s90-mobile-actions">
+        <button class="s90-mobile-icon" type="button" data-s90-search-toggle aria-label="Search products" aria-expanded="false" aria-controls="mobileSearchPanel"><svg class="s90-nav-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
+        <button class="s90-mobile-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavMenu" aria-controls="mobileNavMenu" aria-label="Open menu"><svg class="s90-nav-svg s90-nav-menu-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+      </div>
+      <form class="s90-mobile-search-panel" id="mobileSearchPanel" role="search" hidden onsubmit="return handleSearch(event);">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search products" id="navbarSearchMobile">
+        <button class="s90-mobile-search-icon" type="submit" aria-label="Search products"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
+        <button class="s90-mobile-search-submit" type="button" data-s90-search-close aria-label="Close search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button>
+      </form>
     </div>
+    <a class="navbar-brand d-none d-lg-block" href="home.html"><img src="SP_Stroke.png" alt="SP" class="s90-navbar-logo"></a>
+    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link active text-black nav-hover" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-black nav-hover" href="#featureSection">Features</a></li>
+        <li class="nav-item"><a class="nav-link text-black nav-hover" href="#" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">Categories</a></li>
+      </ul>
+      <form class="d-flex d-none d-lg-flex me-3 align-items-center" role="search" onsubmit="return handleSearch(event);">
+        <input class="form-control border-0 rounded-pill me-2 px-3 py-2" type="search" placeholder="Search products" aria-label="Search" id="navbarSearchDesktop">
+        <button class="btn btn-warning rounded-pill px-4 fw-semibold shadow-sm search-hover" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </div>
 </nav>
+<div class="offcanvas offcanvas-end s90-mobile-nav-panel" tabindex="-1" id="mobileNavMenu" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header border-bottom text-white fw-semibold s90-mobile-nav-header"><h5 class="offcanvas-title fw-bold" id="mobileNavLabel"><i class="bi bi-list-ul" aria-hidden="true"></i><span>Menu</span></h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button></div>
+  <div class="offcanvas-body"><nav class="nav flex-column s90-mobile-nav-links" aria-label="Main navigation"><a class="nav-link" href="home.html"><i class="bi bi-chevron-right"></i> Home</a><a class="nav-link" href="#featureSection" data-bs-dismiss="offcanvas"><i class="bi bi-chevron-right"></i> Features</a><button class="nav-link text-start" type="button" data-s90-open-categories><i class="bi bi-chevron-right"></i> Categories</button></nav></div>
+</div>
 
     <!-- Sidebar Offcanvas Menu -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarLabel"
+    <div class="offcanvas offcanvas-start s90-sidebar-panel" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarLabel"
         style="background-color: #ffffff;">
         <div class="offcanvas-header border-bottom border-light">
-            <h5 class="offcanvas-title text-white fw-semibold" id="sidebarLabel" style="color: black !important; font-family: poppins;">  <i class="bi bi-card-list"></i>
+            <h5 class="offcanvas-title text-white fw-semibold s90-sidebar-title" id="sidebarLabel" style="color: black !important; font-family: poppins;">  <i class="bi bi-card-list"></i>
                 Categories</h5>
             <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
 
     <div class="offcanvas-body m-1 px-3 overflow-auto">
-        <ul class="nav flex-column gap-1 sidebar-links" style="font-family: poppins, Khmer OS Battambang;">
+        <ul class="nav flex-column sidebar-links s90-sidebar-links" style="font-family: poppins, Khmer OS Battambang;">
             <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="All">All</a></li>
             <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="ADA">ផ្លែតំណ-Connector</a></li>
             <li class="nav-item"><a class="nav-link text-black sidebar-hover category-filter" href="#" data-category="KEY">សោរ-Key</a></li>
@@ -32618,120 +32593,11 @@
  
     <!-- Finished 27/09/2025 -->
  
-    <a href="https://t.me/S90contructionsupply" title="Contact us on Telegram" id="tgBtn" style="
-         position: fixed;
-         bottom: 80px;
-         right: 20px;
-         z-index: 99;
-         background: linear-gradient(135deg, #35b6ef 0%, #229ed9 100%);
-         color: white;
-         border-radius: 50%;
-         width: 50px;
-         height: 50px;
-         font-size: 29px;
-         line-height: 1;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         text-decoration: none;
-         margin-bottom: 70px;
-       ">
-        <img class="tg-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1280px-Telegram_logo.svg.png?_=20220101141644" alt="Telegram">
-    </a>
-    
-    <a href="https://www.facebook.com/share/17WEzkFb4s/?mibextid=wwXIfr" title="Our Facebook page" id="fbBtn" style="
-         position: fixed;
-         bottom: 80px;
-         right: 20px;
-         z-index: 99;
-         background: linear-gradient(180deg, #2d88ff 0%, #1877f2 100%);
-         color: white;
-         border-radius: 50%;
-         width: 50px;
-         height: 50px;
-         font-size: 30px;
-         line-height: 1;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         text-decoration: none;
-         margin-bottom: 140px;
-       ">
-        <svg class="social-icon-svg" viewBox="0 0 320 512" aria-hidden="true">
-            <path fill="currentColor"
-                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
-        </svg>
-    </a>
-    
-    
-    <button onclick="scrollToTop()" id="goToTopBtn" title="Go to top"
-        style="position: fixed; bottom: 80px; right: 20px; display: none; z-index: 99; background-color: #007bff; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; color: white;">
-        <i class="bi bi-chevron-up"></i>
-    </button>
-    
-    <button onclick="scrollToBottom()" id="goToBottomBtn" title="Go to bottom"
-        style="position: fixed; bottom: 80px; right: 20px; display: none; z-index: 99; background-color: #c74444; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; color: white;">
-        <i class="bi bi-chevron-down"></i>
-    </button>
-
-    <style>
-        #fbBtn,
-        #tgBtn {
-            box-shadow: none;
-        }
-
-        #tgBtn {
-            padding: 0;
-            overflow: hidden;
-        }
-
-        #fbBtn .social-icon-svg,
-        #tgBtn .social-icon-svg {
-            width: 54%;
-            height: 54%;
-            display: block;
-            color: #fff;
-        }
-
-        #tgBtn .tg-icon-svg {
-            width: 60%;
-            height: 60%;
-        }
-
-        #tgBtn .tg-icon-img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        @media (max-width: 992px) {
-            #fbBtn,
-            #tgBtn,
-            #goToTopBtn,
-            #goToBottomBtn {
-                right: 12px !important;
-                width: 40px !important;
-                height: 40px !important;
-                font-size: 24px !important;
-                margin-bottom: 0 !important;
-            }
-
-            #fbBtn {
-                bottom: 124px !important;
-            }
-
-            #tgBtn {
-                bottom: 72px !important;
-            }
-
-            #goToTopBtn,
-            #goToBottomBtn {
-                bottom: 16px !important;
-            }
-        }
-    </style>
+    <!-- S90-style SP floating controls -->
+<a href="https://t.me/S90contructionsupply" title="Contact us on Telegram" id="tgBtn" class="s90-floating-control s90-telegram-floating-button"><img class="tg-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1280px-Telegram_logo.svg.png?_=20220101141644" alt="Telegram"></a>
+<a href="https://www.facebook.com/share/17WEzkFb4s/?mibextid=wwXIfr" title="SP on Facebook" id="fbBtn" class="s90-floating-control s90-facebook-floating-button"><svg class="social-icon-svg" viewBox="0 0 320 512" aria-hidden="true"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+<button onclick="scrollToTop()" id="goToTopBtn" title="Go to top" class="s90-floating-scroll s90-floating-scroll-top"><i class="bi bi-chevron-up"></i></button>
+<button onclick="scrollToBottom()" id="goToBottomBtn" title="Go to bottom" class="s90-floating-scroll s90-floating-scroll-bottom"><i class="bi bi-chevron-down"></i></button>
     
     <!-- goToBottomBtn -->
     <script>
@@ -32824,19 +32690,10 @@
         const desktopInput = document.getElementById('navbarSearchDesktop');
         const mobileInput = document.getElementById('navbarSearchMobile');
 
-        // Helper to get active input (visible one)
-        function getActiveInput() {
-            if (window.getComputedStyle(desktopInput.closest('form')).display !== 'none') {
-                return desktopInput;
-            } else {
-                return mobileInput;
-            }
-        }
-
         // Main search handler
         function handleSearch(event) {
             event.preventDefault();
-            const input = getActiveInput();
+            const input = event.currentTarget.querySelector('input[type="search"]') || desktopInput || mobileInput;
             const query = input.value.trim().toLowerCase();
             filterCards(query);
             return false;
@@ -32852,14 +32709,15 @@
 
         function filterCards(query) {
             const cards = document.querySelectorAll('.card');
+            const normalizedQuery = (query || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
             let found = false;
 
             cards.forEach(card => {
-                const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
-                const sku = card.querySelector('.card-text')?.textContent.toLowerCase() || '';
-                const match = title.includes(query) || sku.includes(query);
+                const wrapper = card.closest('[class*="col-"]') || card.parentElement || card;
+                const searchableText = (card.dataset.category || '') + ' ' + card.textContent;
+                const match = searchableText.normalize('NFKC').replace(/\s+/g, ' ').toLowerCase().includes(normalizedQuery);
 
-                card.parentElement.style.display = match ? '' : 'none';
+                wrapper.style.display = match ? '' : 'none';
                 if (match) found = true;
             });
 
@@ -33015,17 +32873,18 @@
             }
 
             function getCategoryFromCard(card) {
+                if (card.dataset && card.dataset.category) return card.dataset.category.trim();
                 const img = card.querySelector('img');
                 if (!img) return null;
 
                 const src = img.getAttribute('src') || '';
-                const parts = src.split('/');
-
-                if (parts.length > 1) {
-                    return parts[0].trim();
-                }
-
-                return null;
+                const folder = src.split('/')[0].trim();
+                const folderCode = folder.split('-').pop();
+                const matchingButton = Array.from(buttons).find(btn => {
+                    const value = (btn.getAttribute('data-category') || '').trim();
+                    return value === folder || value === folderCode || value.endsWith('-' + folderCode);
+                });
+                return matchingButton ? matchingButton.getAttribute('data-category') : folder;
             }
 
             // =========================
@@ -33049,7 +32908,9 @@
                     const cardCategory = getCategoryFromCard(card);
                     const normalizedCardCategory = normalize(cardCategory);
 
-                    if (normalizedCardCategory === normalizedCategory) {
+                    if (normalizedCardCategory === normalizedCategory ||
+                        normalizedCardCategory.endsWith('-' + normalizedCategory) ||
+                        normalizedCategory.endsWith('-' + normalizedCardCategory)) {
                         wrapper.style.display = '';
                     } else {
                         wrapper.style.display = 'none';
@@ -33059,7 +32920,8 @@
 
                 // highlight active button
                 buttons.forEach(btn => {
-                    if (normalize(btn.getAttribute('data-category')) === normalizedCategory) {
+                    const btnCategory = normalize(btn.getAttribute('data-category'));
+                    if (btnCategory === normalizedCategory || btnCategory.endsWith('-' + normalizedCategory) || normalizedCategory.endsWith('-' + btnCategory)) {
                         btn.classList.add('active');
 
                         btn.scrollIntoView({
@@ -33145,6 +33007,42 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const searchToggle = document.querySelector('[data-s90-search-toggle]');
+            const searchPanel = document.getElementById('mobileSearchPanel');
+            const searchInput = document.getElementById('navbarSearchMobile');
+            const searchClose = document.querySelector('[data-s90-search-close]');
+
+            if (searchToggle && searchPanel && searchInput) {
+                searchToggle.addEventListener('click', function () {
+                    searchPanel.hidden = false;
+                    searchToggle.setAttribute('aria-expanded', 'true');
+                    window.setTimeout(function () { searchInput.focus(); }, 50);
+                });
+                searchClose?.addEventListener('click', function () {
+                    searchPanel.hidden = true;
+                    searchToggle.setAttribute('aria-expanded', 'false');
+                    searchInput.blur();
+                    searchToggle.focus();
+                });
+            }
+
+            const openCategories = document.querySelector('[data-s90-open-categories]');
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const categoryMenu = document.getElementById('sidebarMenu');
+            if (!openCategories || !mobileMenu || !categoryMenu || !window.bootstrap) return;
+
+            openCategories.addEventListener('click', function () {
+                bootstrap.Offcanvas.getOrCreateInstance(mobileMenu).hide();
+                mobileMenu.addEventListener('hidden.bs.offcanvas', function openCategoryMenu() {
+                    mobileMenu.removeEventListener('hidden.bs.offcanvas', openCategoryMenu);
+                    bootstrap.Offcanvas.getOrCreateInstance(categoryMenu).show();
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             const cards = Array.from(document.querySelectorAll('.card.box:not(.hero-banner-card)'));
             if (!cards.length || !window.bootstrap) return;
 
@@ -33160,7 +33058,6 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content border-0 shadow-lg">
                             <div class="modal-header">
-                                <h5 class="modal-title quick-view-title mb-0" id="quickViewTitle">Product details</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body p-0">
@@ -33169,6 +33066,7 @@
                                         <img id="quickViewImage" class="img-fluid quick-view-image" src="" alt="">
                                     </div>
                                     <div class="col-md-7 p-4">
+                                        <h5 class="modal-title quick-view-title mb-2" id="quickViewTitle">Product details</h5>
                                         <p id="quickViewSku" class="quick-view-sku text-dark mb-2"></p>
                                         <div id="quickViewPrice" class="fw-bold quick-view-price mb-3"></div>
                                         <div id="quickViewDetails" class="quick-view-details text-dark"></div>
@@ -33187,7 +33085,7 @@
                                     <i class="bi bi-cart3"></i>
                                     <span>Order Now</span>
                                 </a>
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-secondary quick-view-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
                             </div>
                         </div>
                     </div>
@@ -33624,6 +33522,15 @@
                 openTelegramOrder();
             });
 
+            window.S90QuickView = {
+                getOrder: function () {
+                    if (!currentInfo) return null;
+                    var multi = currentInfo.options && currentInfo.options.length;
+                    var lines = multi ? getVisibleSelections().map(function (it) { return { label: it.label || 'Option', price: it.price || 'Contact us', qty: getSelectionQty(it) }; }) : (currentSelection ? [{ label: '', price: currentSelection.price || 'Contact us', qty: currentQty }] : []);
+                    return { title: currentInfo.title, sku: String(currentInfo.sku || '').replace(/^SKU:\s*/i, ''), imageRel: currentInfo.imageSrc || '', lines: lines.filter(function (x) { return x.qty > 0; }) };
+                }
+            };
+
             cards.forEach(function (card) {
                 card.tabIndex = 0;
                 card.setAttribute('role', 'button');
@@ -33668,5 +33575,7 @@
         document.addEventListener('hidden.bs.collapse', updateLayout);
     </script>
 
+    <script src="public-catalog.js?v=sp1" defer></script>
+    <script src="cart.js?v=sp1" defer></script>
 </body>
 </html>
