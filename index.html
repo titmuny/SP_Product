@@ -125,92 +125,6 @@
     </div>
     </div>
 
-    <!-- <script>
-        document.querySelectorAll('.category-filter').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const cat = this.getAttribute('data-category');
-                document.querySelectorAll('.card').forEach(card => {
-                    const img = card.querySelector('img');
-                    if (!img) return;
-                    const src = img.getAttribute('src') || '';
-
-                    if (cat === 'All') {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ADA' && src.includes('ផ្លែតំណ-ADA')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'KEY' && src.includes('KEY-KEY')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'Laser Distance Meter-LSDT' && src.includes('Laser Distance Meter-LSDT')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'Motor-DLMT' && src.includes('Motor-DLMT')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'Solar-Solar' && src.includes('Solar-Solar')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'Survay-SVY' && src.includes('Survay-SVY')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'wall&roof-WR' && src.includes('wall&roof-WR')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'Welding Magnet Support-WDMN' && src.includes('Welding Magnet Support-WDMN')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ក្តារ-KDAR' && src.includes('ក្តារ-KDAR')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងការ៉ូ-TLSC' && src.includes('គ្រឿងការ៉ូ-TLSC')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងជ័រ-PLAS' && src.includes('គ្រឿងជ័រ-PLAS')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងឈើ-WDST' && src.includes('គ្រឿងឈើ-WDST')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងទឹក-WSP' && src.includes('គ្រឿងទឹក-WSP')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងបន្លាស់-TMOR' && src.includes('គ្រឿងបន្លាស់-TMOR')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងភ្លើង-ELT' && src.includes('គ្រឿងភ្លើង-ELT')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'គ្រឿងសំអាត-CLEAN' && src.includes('គ្រឿងសំអាត-CLEAN')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ឆុត-SET' && src.includes('ឆុត-SET')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ជើងទ្រ រឹត-STSP' && src.includes('ជើងទ្រ រឹត-STSP')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ដែក-Iron' && src.includes('ដែក-Iron')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ដែក-MTSP' && src.includes('ដែក-MTSP')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ថ្នាំ-PAN' && src.includes('ថ្នាំ-PAN')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ថ្ម បេតុង-CCSP' && src.includes('ថ្ម បេតុង-CCSP')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ទុយោ-TUBE' && src.includes('ទុយោ-TUBE')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ទុយោរទឹកស្អាត-HDPE' && src.includes('ទុយោរទឹកស្អាត-HDPE')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'បន្ទាត់-RLSP' && src.includes('បន្ទាត់-RLSP')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ផ្សេងៗ-OTH' && src.includes('ផ្សេងៗ-OTH')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'វីស-វីស' && src.includes('វីស-វីស')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'ស្កុត&កាវ-SCOT' && src.includes('ស្កុត&កាវ-SCOT')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'អគ្គីភ័យ-fire' && src.includes('អគ្គីភ័យ-fire')) {
-                        card.parentElement.style.display = '';
-                    } else if (cat === 'អំពូល-LIGHT' && src.includes('អំពូល-LIGHT')) {
-                        card.parentElement.style.display = '';
-                    } else {
-                        card.parentElement.style.display = 'none';
-                    }
-                });
-
-                // Close offcanvas after click
-                const sidebar = bootstrap.Offcanvas.getInstance(document.getElementById('sidebarMenu'));
-                if (sidebar) {
-                    sidebar.hide();
-                }
-            });
-        });
-    </script> -->
 
     </ul>
     </div>
@@ -229,13 +143,13 @@
     <div class="d-flex overflow-auto no-scrollbar px-5" id="categoryButtons" 
          style="scroll-behavior: smooth; font-family: Arial, 'Khmer OS Battambang';">
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0 active" data-category="All">All</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="KEY-KEY">KEY-KEY</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Laser Distance Meter-LSDT">Laser Distance Meter-LSDT</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Motor-DLMT">Motor-DLMT</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Solar-Solar">Solar-Solar</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Survay-SVY">Survay-SVY</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Wall & Roof-WR">Wall & Roof-WR</button>
-      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Welding Magnet Support-WDMN">Welding Magnet Support-WDMN</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="KEY-KEY">សោរ-KEY</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Laser Distance Meter-LSDT">ឡាស៊ែរ-LSDT</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Motor-DLMT">ម៉ូទ័រ-DLMT</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Solar-Solar">សូឡា-Solar</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Survay-SVY">សេវេ-SVY</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Wall & Roof-WR">គ្រឿងដំបូល-WR</button>
+      <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="Welding Magnet Support-WDMN">គ្រឿងផ្សារដែក-WDMN</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="ក្តារ-KDAR">ក្តារ-KDAR</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងការ៉ូ-TLSC">គ្រឿងការ៉ូ-TLSC</button>
       <button class="btn btn-outline-primary rounded-pill m-2 category-filter flex-shrink-0" data-category="គ្រឿងជ័រ-PLAS">គ្រឿងជ័រ-PLAS</button>
