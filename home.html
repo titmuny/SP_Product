@@ -5,18 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>SP</title>
+    <title>S90</title>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0RPJXHL0D"></script>
+    <!-- Delay analytics to cut non-essential requests on quick bounces -->
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-M0RPJXHL0D');
+    (function () {
+        const GA_ID = 'G-M0RPJXHL0D';
+        let gaLoaded = false;
+
+        function loadGA() {
+            if (gaLoaded) return;
+            gaLoaded = true;
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { dataLayer.push(arguments); };
+            gtag('js', new Date());
+            gtag('config', GA_ID, { anonymize_ip: true });
+        }
+
+        ['pointerdown', 'keydown', 'scroll'].forEach(function (eventName) {
+            window.addEventListener(eventName, loadGA, { once: true, passive: true });
+        });
+    })();
     </script>
 
-    <link rel="icon" href="SP_Stroke.png" type="image/png">
+    <link rel="icon" href="Logo PNG.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
@@ -27,7 +45,7 @@
     <!-- Begins 11/05/2025 -->
 
     <div id="topBanner">
-        <img src="Banner.jpg" style="width: 100%; height: auto;">
+        <img src="Banner.webp" style="width: 100%; height: auto;" loading="eager" fetchpriority="high" decoding="async">
     </div>
 
     <!-- Navbar -->
@@ -195,7 +213,7 @@
 <!-- body -->
 
 <div class="container mt-5 no-filter" style="font-family: Arial, 'Moul'; font-size: 1.1rem;">
-    <h1 class="text-center">Welcome to SP</h1>
+    <h1 class="text-center">Welcome to S90</h1>
     <p class="text-center">Your one-stop solution for all your needs.</p>
 
     <div class="position-relative">
@@ -452,7 +470,7 @@
                     <a class=" p-0 category-filter" href="#" data-category="ដែក-Iron">
                         <div class="card h-100 shadow-sm text-center">
                             <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
-                                <img src="Home/18.jpg" class="img-fluid p-3" alt="">
+                                <img src="Home/18.webp" class="img-fluid p-3" alt="">
                             </div>
                             <div class="card-body py-2 px-2">
                                 <h6 class=" small mb-0">ដែក-Iron</h6>
@@ -478,7 +496,7 @@
                     <a class=" p-0 category-filter" href="#" data-category="ថ្នាំ-PAN">
                         <div class="card h-100 shadow-sm text-center">
                             <div class="ratio ratio-1x1 d-flex align-items-center justify-content-center">
-                                <img src="Home/20.jpg" class="img-fluid p-3" alt="">
+                                <img src="Home/20.webp" class="img-fluid p-3" alt="">
                             </div>
                             <div class="card-body py-2 px-2">
                                 <h6 class=" small mb-0">ថ្នាំ-Paint</h6>
@@ -1367,7 +1385,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/53.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/53.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2263,7 +2281,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/117.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/117.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2571,7 +2589,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/139.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/139.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2599,7 +2617,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/141.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/141.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2613,7 +2631,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/142.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/142.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2851,7 +2869,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/159.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/159.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2865,7 +2883,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/160.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/160.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -2921,7 +2939,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/164.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/164.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -3397,7 +3415,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/198.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/198.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -3425,7 +3443,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/200.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/200.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -3537,7 +3555,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/208.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/208.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -3551,7 +3569,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/209.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/209.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -3929,7 +3947,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/236.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/236.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -3957,7 +3975,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្លែតំណ-ADA/238.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្លែតំណ-ADA/238.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -5465,7 +5483,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/4.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/4.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -5577,7 +5595,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/12.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/12.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -5591,7 +5609,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/13.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/13.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -6208,7 +6226,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/58.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/58.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -6334,7 +6352,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/67.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/67.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -6348,7 +6366,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/68.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/68.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -6698,7 +6716,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/93.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/93.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -6866,7 +6884,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/108.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/108.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -6908,7 +6926,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/111.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/111.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -7370,7 +7388,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/144.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/144.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -7384,7 +7402,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="KEY-KEY/145.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="KEY-KEY/145.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -9339,7 +9357,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Laser Distance Meter-LSDT/31-32.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Laser Distance Meter-LSDT/31-32.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -10047,7 +10065,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Motor-DLMT/59.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Motor-DLMT/59.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -10960,7 +10978,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Motor-DLMT/136.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Motor-DLMT/136.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -11336,7 +11354,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Motor-DLMT/162.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Motor-DLMT/162.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -11381,7 +11399,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Motor-DLMT/165.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Motor-DLMT/165.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -11519,7 +11537,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Motor-DLMT/174.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Motor-DLMT/174.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -12092,7 +12110,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Survay-SVY/17.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Survay-SVY/17.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -12355,7 +12373,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="Welding Magnet Support-WDMN/13.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="Welding Magnet Support-WDMN/13.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -13256,7 +13274,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងការ៉ូ-TLSC/65-70.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងការ៉ូ-TLSC/65-70.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -13329,7 +13347,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងការ៉ូ-TLSC/79-80.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងការ៉ូ-TLSC/79-80.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -14311,7 +14329,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងការ៉ូ-TLSC/236.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងការ៉ូ-TLSC/236.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -14960,7 +14978,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/42-44.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/42-44.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -15976,7 +15994,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/207-210.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/207-210.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -16219,7 +16237,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/247-250.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/247-250.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -16239,7 +16257,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/251.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/251.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -16281,7 +16299,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/254N.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/254N.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -16528,7 +16546,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/298-308.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/298-308.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17064,7 +17082,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងឈើ-WDST/368.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងឈើ-WDST/368.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17152,7 +17170,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/1.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/1.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17167,7 +17185,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/2.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/2.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17197,7 +17215,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/4.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/4.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17227,7 +17245,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/6-8.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/6-8.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17415,7 +17433,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/21.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/21.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17502,7 +17520,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/32.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/32.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17535,7 +17553,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/36.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/36.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17742,7 +17760,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/240.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/240.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -17854,7 +17872,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/235.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/235.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -18027,7 +18045,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/79.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/79.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -18833,7 +18851,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/157.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/157.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -19172,7 +19190,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងទឹក-WSP/198.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងទឹក-WSP/198.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -19621,7 +19639,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/638.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/638.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -19675,7 +19693,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/30-35.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/30-35.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -19726,7 +19744,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/38-39.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/38-39.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -20018,7 +20036,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/81-83.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/81-83.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -20054,7 +20072,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/87-89.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/87-89.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -21821,7 +21839,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/485-486.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/485-486.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -21959,7 +21977,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/500-503.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/500-503.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -22452,7 +22470,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/593-597.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/593-597.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -22722,7 +22740,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងភ្លើង-ELT/631.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងភ្លើង-ELT/631.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -22748,7 +22766,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងសំអាត-CLEAN/1.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងសំអាត-CLEAN/1.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -22763,7 +22781,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងសំអាត-CLEAN/1.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងសំអាត-CLEAN/1.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -22778,7 +22796,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="គ្រឿងសំអាត-CLEAN/1.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="គ្រឿងសំអាត-CLEAN/1.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -23736,7 +23754,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ដែក-Iron/1-6.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ដែក-Iron/1-6.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -24259,7 +24277,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ដែក-MTSP/48-49.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ដែក-MTSP/48-49.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -24712,7 +24730,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ដែក-MTSP/119.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ដែក-MTSP/119.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -25531,7 +25549,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ថ្នាំ-PAN/82.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ថ្នាំ-PAN/82.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -25940,7 +25958,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ថ្ម បេតុង-CCSP/31.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ថ្ម បេតុង-CCSP/31.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -26558,7 +26576,7 @@
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ទុយោ-TUBE/149-150.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ទុយោ-TUBE/149-150.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -28814,7 +28832,7 @@
              
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="បន្ទាត់-RLSP/99.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="បន្ទាត់-RLSP/99.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -29517,7 +29535,7 @@
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្សេងៗ-OTH/97-100.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្សេងៗ-OTH/97-100.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -30716,7 +30734,7 @@
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្សេងៗ-OTH/296-297.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្សេងៗ-OTH/296-297.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -30845,7 +30863,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្សេងៗ-OTH/309-310.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្សេងៗ-OTH/309-310.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -30997,7 +31015,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ផ្សេងៗ-OTH/326-327.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ផ្សេងៗ-OTH/326-327.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -32430,7 +32448,7 @@
             
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 d-flex flex-column box" style="border-radius: 0;">
-                    <img src="ស្កុត&កាវ-SCOT/80.jpg" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
+                    <img src="ស្កុត&កាវ-SCOT/80.webp" class="card-img-top" loading="lazy" decoding="async" fetchpriority="low" alt="..."
                         style="border-radius: 0; max-height: fit-content; margin: 0 auto;">
                     <div class="card-body d-flex flex-column">
                         <div>
@@ -32829,7 +32847,7 @@
 
     <!-- Floating buttons for Telegram and Facebook -->
 
-        <a href="#" title="Home" id="homeBtn" style="
+    <a href="#" title="Home" id="homeBtn" style="
          position: fixed;
          bottom: 80px;
          right: 20px;
@@ -32982,7 +33000,7 @@
     </style>
 
     <!-- goToBottomBtn -->
-
+     
     <script>
         // Already in HTML, so just reference
         const goToBottomBtnEl = document.getElementById("goToBottomBtn");
@@ -33182,13 +33200,12 @@
             <hr class="border-secondary my-4">
     
             <div class="text-center small text-secondary">
-                <p class="mb-0">© 2025 <span class="text-light fw-semibold">SP</span>. All rights reserved.</p>
+                <p class="mb-0">© 2025 <span class="text-light fw-semibold">S90</span>. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
     <!-- category bar scroll buttons + desktop drag scroll -->
@@ -33235,12 +33252,13 @@
             scrollContainer.scrollLeft = scrollLeft - walk;
         });
     </script>
+    
     <!-- Category filter script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.category-filter');
 
-        // Only cards NOT inside .no-filter
+        // ❗ Only cards NOT inside .no-filter
         const cardElements = Array.from(
             document.querySelectorAll('.card')
         ).filter(card => !card.closest('.no-filter'));
@@ -33254,7 +33272,7 @@
             return card.closest('[class*="col-"]') || card.parentElement || card;
         }
 
-        // Hide only filterable cards on load
+        // 🔒 Hide only filterable cards on load
         cardElements.forEach(card => {
             const wrapper = findWrapper(card);
             if (wrapper) wrapper.style.display = 'none';
@@ -33309,6 +33327,508 @@
         }
 
         buttons.forEach(btn => btn.addEventListener('click', onClickHandler));
+        });
+    </script>
+
+    <!-- Order -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = Array.from(document.querySelectorAll('.card.box:not(.hero-banner-card)'));
+            if (!cards.length || !window.bootstrap) return;
+
+            let modalEl = document.getElementById('productQuickViewModal');
+
+            if (!modalEl) {
+                modalEl = document.createElement('div');
+                modalEl.className = 'modal fade';
+                modalEl.id = 'productQuickViewModal';
+                modalEl.tabIndex = -1;
+                modalEl.setAttribute('aria-hidden', 'true');
+                modalEl.innerHTML = `
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content border-0 shadow-lg">
+                            <div class="modal-header">
+                                <h5 class="modal-title quick-view-title mb-0" id="quickViewTitle">Product details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="row g-0">
+                                    <div class="col-md-5 quick-view-image-wrap d-flex align-items-center justify-content-center">
+                                        <img id="quickViewImage" class="img-fluid quick-view-image" src="" alt="">
+                                    </div>
+                                    <div class="col-md-7 p-4">
+                                        <p id="quickViewSku" class="quick-view-sku text-dark mb-2"></p>
+                                        <div id="quickViewPrice" class="fw-bold quick-view-price mb-3"></div>
+                                        <div id="quickViewDetails" class="quick-view-details text-dark"></div>
+                                        <div class="quick-view-order-tools">
+                                            <div class="quick-view-qty">
+                                                <p class="quick-view-qty-label">Qty</p>
+                                                <div id="quickViewQtyControls" class="quick-view-qty-controls"></div>
+                                            </div>
+                                            <div id="quickViewSummary" class="quick-view-summary"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <a id="quickViewOrderBtn" class="btn fw-semibold quick-view-order-btn" href="tel:010288993">
+                                    <i class="bi bi-cart3"></i>
+                                    <span>Order Now</span>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modalEl);
+            }
+
+            const modal = new bootstrap.Modal(modalEl);
+            const titleEl = modalEl.querySelector('#quickViewTitle');
+            const imageEl = modalEl.querySelector('#quickViewImage');
+            const skuEl = modalEl.querySelector('#quickViewSku');
+            const priceEl = modalEl.querySelector('#quickViewPrice');
+            const detailsEl = modalEl.querySelector('#quickViewDetails');
+            const orderBtn = modalEl.querySelector('#quickViewOrderBtn');
+            const qtyControlsEl = modalEl.querySelector('#quickViewQtyControls');
+            const summaryEl = modalEl.querySelector('#quickViewSummary');
+            let currentQty = 1;
+            let currentSelection = null;
+            let currentSelections = [];
+            let currentInfo = null;
+            let currentSelectionQuantities = {};
+
+            function escapeHtml(value) {
+                return String(value || '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
+
+            function extractOptions(priceHtml) {
+                const plainText = String(priceHtml || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                if (/^price\s*:/i.test(plainText)) {
+                    return [];
+                }
+
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = priceHtml || '';
+                const items = Array.from(wrapper.querySelectorAll('li'));
+
+                const parsedItems = items.map(function (item) {
+                    const clone = item.cloneNode(true);
+                    const priceNode = clone.querySelector('.multi-price');
+                    const priceText = priceNode ? priceNode.textContent.trim().replace(/^=\s*/, '') : '';
+                    if (priceNode) priceNode.remove();
+
+                    const labelText = clone.textContent.replace(/=\s*\$?\s*[\d.,]+/g, '').trim();
+                    return {
+                        label: labelText || 'Option',
+                        price: priceText || 'Contact us'
+                    };
+                }).filter(function (item) {
+                    return item.label || item.price;
+                });
+
+                if (parsedItems.length) {
+                    return parsedItems;
+                }
+
+                return String(priceHtml || '')
+                    .split(/<br\s*\/?>/i)
+                    .map(function (lineHtml) {
+                        const line = lineHtml
+                            .replace(/<\/?(ul|li)\b[^>]*>/gi, ' ')
+                            .replace(/<[^>]+>/g, ' ')
+                            .replace(/\s+/g, ' ')
+                            .trim();
+                        const priceMatch = line.match(/=\s*\$?\s*[\d.,]+/);
+                        const priceText = priceMatch ? priceMatch[0].replace(/^=\s*/, '').trim() : '';
+                        const labelText = line
+                            .replace(/^\d+\.\s*/, '')
+                            .replace(/=\s*\$?\s*[\d.,]+/g, '')
+                            .trim();
+
+                        return {
+                            label: labelText || 'Option',
+                            price: priceText || 'Contact us'
+                        };
+                    })
+                    .filter(function (item) {
+                        return (item.label || item.price) && !/^price\s*:/i.test(item.label || '');
+                    });
+            }
+
+            function parsePriceValue(text) {
+                const normalized = String(text || '').replace(/,/g, '');
+                const match = normalized.match(/-?\d+(?:\.\d+)?/);
+                return match ? Number(match[0]) : 0;
+            }
+
+            function formatPriceValue(value) {
+                return '$' + Number(value || 0).toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            }
+
+            function extractSinglePrice(priceHtml) {
+                const text = String(priceHtml || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                return text.replace(/^Price:\s*/i, '').trim() || 'Contact us';
+            }
+
+            function hasKnownPrice(text) {
+                return !/contact us/i.test(String(text || ''));
+            }
+
+            function getRenderedSelections() {
+                return currentSelections.length ? currentSelections : (currentSelection ? [currentSelection] : []);
+            }
+
+            function getVisibleSelections() {
+                const selections = getRenderedSelections();
+                return currentInfo?.options?.length
+                    ? selections.filter(function (item) {
+                        return getSelectionQty(item) > 0;
+                    })
+                    : selections;
+            }
+
+            function getTotalQty() {
+                return currentInfo?.options?.length
+                    ? getVisibleSelections().reduce(function (sum, item) {
+                        return sum + getSelectionQty(item);
+                    }, 0)
+                    : currentQty;
+            }
+
+            function getGrandTotal() {
+                const selections = getVisibleSelections();
+                return selections.reduce(function (sum, item) {
+                    const qty = currentInfo?.options?.length ? getSelectionQty(item) : currentQty;
+                    return sum + (parsePriceValue(item.price) * qty);
+                }, 0);
+            }
+
+            function getImageShareUrl() {
+                if (!currentInfo?.imageSrc) return '';
+                try {
+                    return new URL(currentInfo.imageSrc, window.location.href).href;
+                } catch (error) {
+                    return currentInfo.imageSrc;
+                }
+            }
+
+            function normalizeSkuText(value) {
+                const text = (value || '').trim();
+                if (!text) return 'Contact us for SKU details';
+
+                const matches = Array.from(text.matchAll(/sku\s*:\s*([^\s|,;]+)/gi));
+                if (matches.length) {
+                    return 'SKU: ' + matches[0][1].trim();
+                }
+
+                return text;
+            }
+
+            function buildTelegramOrderText() {
+                const selections = getVisibleSelections();
+                const lines = [];
+                const imageUrl = getImageShareUrl();
+
+                if (imageUrl) {
+                    lines.push(imageUrl);
+                    lines.push('');
+                }
+
+                lines.push(
+                    'Order Summary',
+                    'Product: ' + (currentInfo?.title || 'Product'),
+                    (currentInfo?.sku || 'SKU: N/A')
+                );
+
+                if (currentInfo?.options?.length) {
+                    lines.push('Items:');
+                    selections.forEach(function (item) {
+                        const qty = getSelectionQty(item);
+                        const lineTotal = parsePriceValue(item.price) * qty;
+                        lines.push('- ' + (item.label || 'Option') + ' | Qty: ' + qty + ' | Total: ' + (hasKnownPrice(item.price) ? formatPriceValue(lineTotal) : (item.price || 'Contact us')));
+                    });
+                } else {
+                    lines.push('Qty: ' + currentQty);
+                    lines.push('Price: ' + (hasKnownPrice(currentSelection?.price) ? formatPriceValue(parsePriceValue(currentSelection?.price) * currentQty) : (currentSelection?.price || 'Contact us')));
+                }
+
+                lines.push('Total Qty: ' + getTotalQty());
+                lines.push('Grand Total: ' + formatPriceValue(getGrandTotal()));
+
+                return lines.join('\n');
+            }
+
+            function isMobileDevice() {
+                return window.matchMedia('(max-width: 767.98px)').matches
+                    || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+            }
+
+            function getTelegramShareUrls() {
+                const text = encodeURIComponent(buildTelegramOrderText());
+                return {
+                    app: 'tg://resolve?domain=simplyshoppingKH_1&text=' + text,
+                    web: 'https://t.me/simplyshoppingKH_1?text=' + text
+                };
+            }
+
+            function openTelegramOrder() {
+                const telegramUrls = getTelegramShareUrls();
+
+                if (isMobileDevice()) {
+                    const fallbackTimer = window.setTimeout(function () {
+                        window.location.href = telegramUrls.web;
+                    }, 900);
+
+                    window.location.href = telegramUrls.app;
+                    window.setTimeout(function () {
+                        window.clearTimeout(fallbackTimer);
+                    }, 1200);
+                    return;
+                }
+
+                window.open(telegramUrls.web, '_blank', 'noopener');
+            }
+
+            function getSelectionKey(item) {
+                return [item?.label || 'Option', item?.price || 'Contact us'].join('||');
+            }
+
+            function getSelectionQty(item) {
+                const key = getSelectionKey(item);
+                const storedQty = Object.prototype.hasOwnProperty.call(currentSelectionQuantities, key)
+                    ? currentSelectionQuantities[key]
+                    : 1;
+                return Math.max(0, storedQty);
+            }
+
+            function renderQtyControls() {
+                const displayedQty = currentInfo?.options?.length && currentSelection
+                    ? getSelectionQty(currentSelection)
+                    : currentQty;
+                qtyControlsEl.innerHTML = `
+                    <div class="d-inline-flex align-items-center border rounded-pill overflow-hidden">
+                        <button type="button" class="quick-view-qty-btn px-3 border-0 bg-transparent" data-qty-action="minus" aria-label="Decrease quantity">-</button>
+                        <span class="quick-view-qty-value px-3">${displayedQty}</span>
+                        <button type="button" class="quick-view-qty-btn px-3 border-0 bg-transparent" data-qty-action="plus" aria-label="Increase quantity">+</button>
+                    </div>
+                `;
+            }
+
+            function renderSummary() {
+                const selections = getRenderedSelections();
+                const visibleSelections = getVisibleSelections();
+                const hasOptionChoices = Boolean(currentInfo?.options?.length);
+                const totalQty = getTotalQty();
+                const grandTotal = getGrandTotal();
+                const optionRows = visibleSelections.map(function (item) {
+                    const qty = getSelectionQty(item);
+                    const lineTotal = parsePriceValue(item.price) * qty;
+                    const linePriceText = hasKnownPrice(item.price) ? formatPriceValue(lineTotal) : (item.price || 'Contact us');
+                    return `<div class="quick-view-summary-row"><span>${escapeHtml(item.label || 'Option')}</span><strong>x${qty} ${escapeHtml(linePriceText)}</strong></div>`;
+                }).join('');
+                const singleItemPrice = selections[0]?.price || 'Contact us';
+
+                renderQtyControls();
+                summaryEl.innerHTML = `
+                    <div class="quick-view-summary-title">Order Summary</div>
+                    <div class="quick-view-summary-row"><span>Item</span><span>${escapeHtml(currentInfo?.title || 'Product')}</span></div>
+                    <hr class="my-2">
+                    ${hasOptionChoices ? optionRows + '<hr class="my-2">' : `<div class="quick-view-summary-row"><span>Price</span><strong>x${totalQty} ${escapeHtml(singleItemPrice)}</strong></div>
+                    <hr class="my-2">
+                    <div class="quick-view-summary-row"><span>Total Qty</span><span>${totalQty}</span></div>`}
+                    ${hasOptionChoices ? `<div class="quick-view-summary-row"><span>Total Qty</span><span>${totalQty}</span></div>` : ''}
+                    <hr class="my-2">
+                    <div class="quick-view-summary-row"><span>Total</span><strong>${hasKnownPrice(singleItemPrice) || hasOptionChoices ? escapeHtml(formatPriceValue(grandTotal)) : 'Contact us'}</strong></div>
+                `;
+                orderBtn.setAttribute('aria-label', 'Order ' + (currentInfo?.title || 'product') + ', total qty ' + totalQty);
+            }
+
+            function getCardInfo(card) {
+                const title = card.querySelector('.card-title')?.textContent.trim() || 'Product';
+                const skuText = Array.from(card.querySelectorAll('.card-text')).find(function (node) {
+                    return /sku/i.test(node.textContent);
+                })?.textContent || '';
+                const priceNode = Array.from(card.querySelectorAll('.card-text, .items')).find(function (node) {
+                    return /price/i.test(node.textContent) || node.classList.contains('items');
+                });
+                const img = card.querySelector('img');
+
+                return {
+                    title: title,
+                    sku: normalizeSkuText(skuText),
+                    priceHtml: priceNode ? priceNode.innerHTML : 'Contact us for the latest price.',
+                    options: priceNode ? extractOptions(priceNode.innerHTML) : [],
+                    imageSrc: img ? img.getAttribute('src') : '',
+                    imageAlt: img ? (img.getAttribute('alt') || title) : title
+                };
+            }
+
+            function openQuickView(card) {
+                const info = getCardInfo(card);
+                currentInfo = info;
+                currentQty = 1;
+                currentSelection = null;
+                currentSelections = [];
+                currentSelectionQuantities = {};
+                titleEl.textContent = info.title;
+                skuEl.textContent = info.sku;
+                priceEl.innerHTML = '';
+                detailsEl.innerHTML = '';
+
+                if (info.imageSrc) {
+                    imageEl.src = info.imageSrc;
+                    imageEl.alt = info.imageAlt;
+                    imageEl.classList.remove('d-none');
+                } else {
+                    imageEl.classList.add('d-none');
+                    imageEl.removeAttribute('src');
+                }
+
+                if (info.options.length) {
+                    priceEl.textContent = 'Choose one or more options';
+                    detailsEl.innerHTML = '<div class="quick-view-options">' + info.options.map(function (option, index) {
+                        return `
+                            <button type="button" class="quick-view-option ${index === 0 ? 'active' : ''}" data-option-label="${escapeHtml(option.label)}" data-option-price="${escapeHtml(option.price)}">
+                                <span class="quick-view-option-label">${escapeHtml(option.label)}</span>
+                                <span class="quick-view-option-price">${escapeHtml(option.price)}</span>
+                            </button>
+                        `;
+                    }).join('') + '</div>';
+
+                    const optionButtons = Array.from(detailsEl.querySelectorAll('.quick-view-option'));
+                    const syncSelectedOptions = function () {
+                        const activeButton = optionButtons.find(function (btn) {
+                            return btn.classList.contains('active');
+                        }) || optionButtons[0];
+
+                        if (activeButton && !activeButton.classList.contains('active')) {
+                            activeButton.classList.add('active');
+                        }
+
+                        currentSelection = activeButton ? {
+                            label: activeButton.dataset.optionLabel || 'Option',
+                            price: activeButton.dataset.optionPrice || 'Contact us'
+                        } : null;
+
+                        if (currentSelection) {
+                            const exists = currentSelections.some(function (item) {
+                                return item.label === currentSelection.label && item.price === currentSelection.price;
+                            });
+                            if (!exists) {
+                                currentSelections.push(currentSelection);
+                            }
+                            currentSelectionQuantities[getSelectionKey(currentSelection)] = currentSelectionQuantities[getSelectionKey(currentSelection)] || 1;
+                        }
+
+                        const combinedPrice = currentSelections.reduce(function (sum, item) {
+                            return sum + (parsePriceValue(item.price) * getSelectionQty(item));
+                        }, 0);
+                        priceEl.textContent = 'Price: ' + (combinedPrice ? formatPriceValue(combinedPrice) : 'Contact us');
+                        renderSummary();
+                    };
+
+                    optionButtons.forEach(function (button) {
+                        button.addEventListener('click', function () {
+                            optionButtons.forEach(function (btn) {
+                                btn.classList.remove('active');
+                            });
+                            button.classList.add('active');
+                            syncSelectedOptions();
+                        });
+                    });
+
+                    syncSelectedOptions();
+                } else if (/^price/i.test(info.priceHtml.replace(/<[^>]+>/g, '').trim())) {
+                    priceEl.innerHTML = info.priceHtml;
+                    currentSelection = {
+                        label: 'Standard',
+                        price: extractSinglePrice(info.priceHtml)
+                    };
+                    currentSelections = [currentSelection];
+                } else {
+                    priceEl.innerHTML = 'Price options';
+                    detailsEl.innerHTML = '<div class="quick-view-list">' + info.priceHtml + '</div>';
+                    currentSelection = {
+                        label: 'Standard',
+                        price: 'Contact us'
+                    };
+                    currentSelections = [currentSelection];
+                }
+
+                orderBtn.href = 'https://t.me/simplyshoppingKH_1';
+                renderSummary();
+                modal.show();
+            }
+
+            qtyControlsEl.addEventListener('click', function (event) {
+                const button = event.target.closest('[data-qty-action]');
+                if (!button) return;
+
+                const action = button.dataset.qtyAction;
+                if (currentInfo?.options?.length && currentSelection) {
+                    const key = getSelectionKey(currentSelection);
+                    const baseQty = getSelectionQty(currentSelection);
+                    currentSelectionQuantities[key] = action === 'minus'
+                        ? Math.max(0, baseQty - 1)
+                        : baseQty + 1;
+                } else {
+                    currentQty = action === 'minus'
+                        ? Math.max(0, currentQty - 1)
+                        : currentQty + 1;
+                }
+
+                if (currentInfo?.options?.length) {
+                    const selections = getRenderedSelections().filter(function (item) {
+                        return getSelectionQty(item) > 0;
+                    });
+                    const combinedPrice = selections.reduce(function (sum, item) {
+                        return sum + (parsePriceValue(item.price) * getSelectionQty(item));
+                    }, 0);
+                    priceEl.textContent = 'Price: ' + (combinedPrice ? formatPriceValue(combinedPrice) : 'Contact us');
+                }
+
+                renderSummary();
+            });
+
+            orderBtn.addEventListener('click', function (event) {
+                const totalQty = getTotalQty();
+
+                if (totalQty === 0) {
+                    event.preventDefault();
+                    alert('Quantity is 0. Please add at least 1 item before ordering.');
+                    return;
+                }
+
+                event.preventDefault();
+                openTelegramOrder();
+            });
+
+            cards.forEach(function (card) {
+                card.tabIndex = 0;
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-label', 'Open price and order options');
+
+                card.addEventListener('click', function (event) {
+                    if (event.target.closest('a, button')) return;
+                    openQuickView(card);
+                });
+
+                card.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        openQuickView(card);
+                    }
+                });
+            });
         });
     </script>
 
