@@ -36,10 +36,14 @@
     "ELT00168AA": {
       "showPrice": true,
       "updatedAt": "2026-10-31T03:40:21.373Z"
+    },
+    "MTSP0021": {
+      "showPrice": false,
+      "updatedAt": "2026-10-31T03:42:13.074Z"
     }
   },
   "settings": {
     "showPrices": true
   },
-  "updatedAt": "2026-10-31T03:40:21.373Z"
+  "updatedAt": "2026-10-31T03:42:13.074Z"
 }
