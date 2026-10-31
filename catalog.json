@@ -27,21 +27,21 @@
       "sku": "aaaa123aa",
       "name": "test តេស",
       "category": "New Arrivals",
-      "price": "1.00",
+      "price": "",
       "items": [
         {
-          "name": "testតេស1",
-          "price": "1.2"
+          "name": "testតេស2",
+          "price": ""
         },
         {
-          "name": "testតេស2",
-          "price": "1.5"
+          "name": "testតេស 1",
+          "price": ""
         }
       ],
       "image": "uploads/products/aaaa123aa-mvvuwzwc.jpg",
       "visible": true,
       "createdAt": "2026-10-31T03:44:01.981Z",
-      "updatedAt": "2026-10-31T03:44:01.981Z"
+      "updatedAt": "2026-10-31T03:45:14.252Z"
     }
   ],
   "overrides": {
@@ -65,5 +65,5 @@
   "settings": {
     "showPrices": true
   },
-  "updatedAt": "2026-10-31T03:44:01.981Z"
+  "updatedAt": "2026-10-31T03:45:14.252Z"
 }
