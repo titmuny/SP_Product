@@ -60,10 +60,14 @@
     "MTSP0021": {
       "showPrice": false,
       "updatedAt": "2026-10-31T03:42:13.074Z"
+    },
+    "ADA00119": {
+      "image": "uploads/products/ada00119-mvvv2i1i.jpg",
+      "updatedAt": "2026-10-31T03:48:18.774Z"
     }
   },
   "settings": {
     "showPrices": true
   },
-  "updatedAt": "2026-10-31T03:45:44.700Z"
+  "updatedAt": "2026-10-31T03:48:18.774Z"
 }
