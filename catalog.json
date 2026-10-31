@@ -28,10 +28,18 @@
     "9999": {
       "hidden": true,
       "updatedAt": "2026-10-18T05:02:58.910Z"
+    },
+    "MTSP0040A": {
+      "showPrice": false,
+      "updatedAt": "2026-10-31T03:40:17.697Z"
+    },
+    "ELT00168AA": {
+      "showPrice": true,
+      "updatedAt": "2026-10-31T03:40:21.373Z"
     }
   },
   "settings": {
     "showPrices": true
   },
-  "updatedAt": "2026-10-31T03:38:33.736Z"
+  "updatedAt": "2026-10-31T03:40:21.373Z"
 }
