@@ -8,9 +8,20 @@
       "price": "1.00",
       "items": [],
       "image": "uploads/products/iron00024asda-mvvuhgfl.jpg",
-      "visible": true,
+      "visible": false,
       "createdAt": "2026-10-31T03:31:56.915Z",
-      "updatedAt": "2026-10-31T03:31:56.915Z"
+      "updatedAt": "2026-10-31T03:38:33.736Z"
+    },
+    {
+      "sku": "aaaa123",
+      "name": "test តេស1",
+      "category": "Best Sellers",
+      "price": "1.00",
+      "items": [],
+      "image": "uploads/products/aa-mvvund10.jpg",
+      "visible": false,
+      "createdAt": "2026-10-31T03:36:32.443Z",
+      "updatedAt": "2026-10-31T03:38:29.018Z"
     }
   ],
   "overrides": {
@@ -22,5 +33,5 @@
   "settings": {
     "showPrices": true
   },
-  "updatedAt": "2026-10-31T03:31:56.915Z"
+  "updatedAt": "2026-10-31T03:38:33.736Z"
 }
